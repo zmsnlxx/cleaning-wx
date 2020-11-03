@@ -1,0 +1,158 @@
+.sign {
+  min-height: 100vh;
+  background: #EFEFEF;
+  position: relative;
+}
+.sign .cell {
+  height: 52px;
+  line-height: 52px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  font-size: 14px;
+}
+.sign .cell .left {
+  color: #6D6C6D;
+  font-weight: 500;
+}
+.sign .cell .right {
+  color: #000000;
+  font-weight: 600;
+}
+.sign .content {
+  padding: 24px;
+  box-sizing: border-box;
+  margin-bottom: 300px;
+}
+.sign .content .title {
+  margin-bottom: 8px;
+}
+.sign .content .title .icon {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #259D8F;
+  margin-right: 24px;
+}
+.sign .content .title .text {
+  color: #259D8F;
+  font-weight: 500;
+  font-size: 14px;
+}
+.sign .content .position {
+  margin-left: 33px;
+  font-size: 14px;
+}
+.sign .content .position .label {
+  color: #6D6C6D;
+  font-weight: 500;
+  display: inline-block;
+  margin-right: 15px;
+}
+.sign .content .position .value {
+  color: #000000;
+  font-weight: 400;
+}
+.sign .content .sign-box {
+  width: 220px;
+  height: 220px;
+  position: relative;
+  margin: 0 auto;
+}
+.sign .content .sign-box .round {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.sign .content .sign-box .hand {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-40%);
+  z-index: 2;
+}
+.sign .content .sign-box .text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+.sign .content .sign-box .text .sign-title {
+  font-size: 32px;
+}
+.sign .content .sign-box .text .time {
+  font-size: 16px;
+}
+.submit-box {
+  width: 100%;
+  height: 300px;
+  background: #343434;
+  box-shadow: 0 2px 23px 0 rgba(0, 0, 0, 0.5);
+  padding: 16px 40px 32px;
+  box-sizing: border-box;
+}
+.submit-box .van-cell {
+  background: transparent !important;
+  color: #FFFFFF;
+  padding: var(--cell-vertical-padding, 10px) 0;
+}
+.submit-box .van-cell .van-uploader .upload {
+  height: 40px;
+  width: 40px;
+  border: 1px dashed #259D8F;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 40px;
+  color: #FFFFFF;
+  font-size: 18px;
+  margin-right: 22px;
+}
+.submit-box .van-cell .van-uploader .van-uploader__file {
+  width: 40px !important;
+  height: 40px !important;
+}
+.submit-box .van-cell .van-uploader .van-uploader__preview-image {
+  width: 40px !important;
+  height: 40px !important;
+}
+.submit-box .van-cell .input-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.submit-box .van-cell .input-box input {
+  width: 106px;
+  background: #FFFFFF;
+  border: 2px solid #259D8F;
+  border-radius: 4px;
+  height: 32px;
+  margin-right: 8px;
+  padding-right: 5px;
+}
+.submit-box .van-cell .input-box input .placeholder {
+  text-align: center;
+}
+.submit-box .van-button {
+  width: 136px;
+  height: 32px;
+  margin-top: 10px;
+}
+.submit-box .van-button button {
+  width: 100%;
+  height: 100%;
+}
+.popup {
+  width: 85%;
+  background: transparent;
+}
+.popup .icon {
+  margin-top: 12px;
+  text-align: center;
+}

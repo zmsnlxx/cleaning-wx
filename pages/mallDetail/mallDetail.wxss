@@ -1,0 +1,31 @@
+.mall-detail {
+  min-height: 100vh;
+  background: #EFEFEF;
+}
+.mall-detail .cell {
+  height: 77px;
+  padding: 17px 24px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  font-weight: 500;
+}
+.mall-detail .cell .time {
+  font-size: 14px;
+  color: #6D6C6D;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+.mall-detail .cell .bottom .item {
+  display: flex;
+  justify-content: space-between;
+}
+.mall-detail .cell .bottom .item .label {
+  font-size: 14px;
+  color: #6D6C6D;
+  line-height: 20px;
+}
+.mall-detail .cell .bottom .item .mall {
+  color: #000000;
+  font-weight: 400;
+  font-size: 14px;
+}

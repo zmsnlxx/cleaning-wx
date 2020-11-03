@@ -1,0 +1,92 @@
+.sign {
+  min-height: 100vh;
+  background: #EFEFEF;
+  position: relative;
+}
+.sign .cell {
+  height: 52px;
+  line-height: 52px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  font-size: 14px;
+}
+.sign .cell .left {
+  color: #6D6C6D;
+  font-weight: 500;
+}
+.sign .cell .right {
+  color: #000000;
+  font-weight: 600;
+}
+.sign .content {
+  padding: 24px;
+  box-sizing: border-box;
+  margin-bottom: 300px;
+}
+.sign .content .title {
+  margin-bottom: 8px;
+}
+.sign .content .title .icon {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #259D8F;
+  margin-right: 24px;
+}
+.sign .content .title .text {
+  color: #259D8F;
+  font-weight: 500;
+  font-size: 14px;
+}
+.sign .content .position {
+  margin-left: 33px;
+  font-size: 14px;
+}
+.sign .content .position .label {
+  color: #6D6C6D;
+  font-weight: 500;
+  display: inline-block;
+  margin-right: 15px;
+}
+.sign .content .position .value {
+  color: #000000;
+  font-weight: 400;
+}
+.sign .content .sign-box {
+  width: 220px;
+  height: 220px;
+  position: relative;
+  margin: 0 auto;
+}
+.sign .content .sign-box .round {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.sign .content .sign-box .hand {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-40%);
+  z-index: 2;
+}
+.sign .content .sign-box .text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+.sign .content .sign-box .text .sign-title {
+  font-size: 32px;
+}
+.sign .content .sign-box .text .time {
+  font-size: 16px;
+}

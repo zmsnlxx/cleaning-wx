@@ -1,0 +1,159 @@
+.mall {
+  min-height: 100vh;
+  background: #EFEFEF;
+}
+.mall .header {
+  height: 146px;
+  width: 100%;
+}
+.mall .header .top {
+  background: #259D8F;
+  display: flex;
+  height: 113px;
+  padding: 20px 4px 3px 24px;
+  box-sizing: border-box;
+}
+.mall .header .top .left {
+  width: calc(100% - 94px);
+  height: 100%;
+}
+.mall .header .top .left .text {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.mall .header .top .left .blod {
+  font-size: 24px;
+  display: inline-block;
+  margin: 0 24px;
+}
+.mall .header .top .right {
+  width: 94px;
+  height: 94px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+.mall .header .tabbar {
+  background: #EEFFF9;
+  height: 33px;
+  line-height: 33px;
+  font-size: 12px;
+  color: #259D8F;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mall .header .tabbar .van-icon {
+  margin-left: 10px;
+}
+.mall .content {
+  padding: 24px;
+  box-sizing: border-box;
+}
+.mall .content .title {
+  display: flex;
+  justify-content: space-between;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 600;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 14px;
+}
+.mall .content .title .message {
+  color: #259D8F;
+  font-size: 12px;
+}
+.mall .content .box {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+.mall .content .box .card {
+  width: calc(50% - 8px);
+  height: 200px;
+  margin-bottom: 8px;
+}
+.mall .content .box .card .top {
+  width: 100%;
+  height: 132px;
+  background: #D8D8D8;
+  border-radius: 8px 8px 0 0;
+}
+.mall .content .box .card .top .van-image {
+  width: 100%;
+  height: 100%;
+}
+.mall .content .box .card .bottom {
+  height: 68px;
+  background: #FFFFFF;
+  width: 100%;
+  border-radius: 0 0 8px 8px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.mall .content .box .card .bottom .msg {
+  font-size: 14px;
+  color: #000000;
+  font-weight: 400;
+}
+.mall .content .box .card .bottom .text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 400;
+}
+.mall .content .box .card .bottom .text .num {
+  color: #259D8F;
+  font-size: 12px;
+}
+.mall .content .box .card .bottom .text .van-button {
+  height: 20px;
+}
+.mall .content .box .card .bottom .text .van-button button {
+  height: 100%;
+}
+.mall .content .box .card:nth-child(2n + 1) {
+  margin-right: 16px;
+}
+.popup-content {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 4px;
+  padding: 16px;
+  box-sizing: border-box;
+  position: relative;
+}
+.popup-content .title {
+  display: flex;
+  justify-content: space-between;
+  color: #000000;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+}
+.popup-content .content {
+  padding: 24px 14px 40px 14px;
+  box-sizing: border-box;
+  color: #000000;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.popup-content .popup-footer {
+  padding: 0 42px;
+  display: flex;
+}
+.popup-content .popup-footer .btn {
+  width: calc(50% - 10px);
+  height: 32px;
+}
+.popup-content .popup-footer .btn button {
+  width: 100%;
+  height: 100%;
+}
+.popup-content .popup-footer .btn:first-child {
+  margin-right: 20px;
+}

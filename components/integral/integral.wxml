@@ -1,0 +1,5 @@
+<view class="integral-box">
+  <van-image class="img" width="136" height="220" fit="cover" src="/public/img/integral.png" />
+  <view class="msg">恭喜你获得了{{ integral }}个积分～再接再厉！</view>
+</view>
+

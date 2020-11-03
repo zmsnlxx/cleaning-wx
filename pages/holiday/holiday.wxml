@@ -1,0 +1,25 @@
+<view class="holiday">
+  <view class="header">
+    <van-button class="btn" bindtap="goCreatdHoliday">发起请假</van-button>
+    <van-tabs color="#259D8F" active="{{ active }}" bind:change="onChange">
+      <van-tab title="我发起的" />
+      <van-tab title="待我审批" />
+    </van-tabs>
+  </view>
+  <view class="list">
+    <view class="box">
+      <view class="card" wx:for="{{ list }}" wx:key="index" bindtap="jumpDetail" data-row="{{ item }}">
+        <view class="content">
+          <view class="title">{{ item.pername }}</view>
+          <view class="desc">{{ ['','事假', '年假'][item.type] }}</view>
+          <view class="time">{{ item.startDay }} {{ item.startHour }} - {{ item.endDay }} {{ item.endHour }}</view>
+          <text wx:if="{{ item.approval === 3 }}" class="reason">拒绝理由：{{ item.reason }}</text>
+        </view>
+        <view class="type {{ ['pending','pending', 'success', 'error'][item.approval] }}">
+          <text class="text">{{ ['撤回', '申请中', '已通过', '拒绝'][item.approval] }}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<custom-tabbar activeIndex='1' />

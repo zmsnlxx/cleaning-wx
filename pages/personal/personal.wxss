@@ -1,0 +1,89 @@
+.personal {
+  background: #EFEFEF;
+  min-height: calc(100vh - 80px);
+}
+.personal .btn {
+  width: calc(100% - 48px);
+  position: absolute;
+  bottom: 100px;
+  left: 24px;
+}
+.personal .btn button {
+  color: #259D8F;
+  background: #EEFFF9;
+  border-radius: 2px;
+}
+.personal .header {
+  width: 100%;
+  height: 150px;
+  background: #259D8F;
+  position: relative;
+}
+.personal .header .card {
+  width: calc(100% - 48px);
+  height: 130px;
+  background: #FFFFFF;
+  border-radius: 2px;
+  position: absolute;
+  left: 24px;
+  top: 62px;
+  display: flex;
+  padding: 0 24px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.personal .header .card .info {
+  font-weight: 600;
+  color: #999999;
+  font-size: 14px;
+  line-height: 20px;
+}
+.personal .header .card .info .name {
+  margin: 24px 0;
+}
+.personal .header .card .head {
+  width: 60px;
+  height: 60px;
+  margin-top: 35px;
+}
+.personal .content {
+  padding: 40px 24px 140px 24px;
+  box-sizing: border-box;
+  position: relative;
+}
+.personal .content .card-item {
+  width: 100%;
+  height: 80px;
+  background: #FFFFFF;
+  border-radius: 2px;
+  padding: 16px;
+  box-sizing: border-box;
+  margin-top: 8px;
+  line-height: 20px;
+  font-size: 14px;
+}
+.personal .content .card-item .label {
+  color: #6D6C6D;
+  display: inline-block;
+  margin-right: 16px;
+}
+.personal .content .card-item .value {
+  color: #000000;
+}
+.personal .content .card-item .bottom {
+  display: flex;
+  margin-top: 8px;
+}
+.personal .content .card-item .bottom .left {
+  width: 50%;
+}
+.personal .margin {
+  height: 80px;
+  width: 100%;
+}
+.personal .title {
+  color: #000000;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}

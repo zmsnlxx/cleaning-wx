@@ -1,0 +1,18 @@
+<view class="personal">
+  <view class="header">
+    <view class="card">
+      <view class="info">
+        <view class="title name">{{ user.pername }}</view>
+        <view class="company">{{ user.orgname }}</view>
+        <view class="position">{{ ['','保洁', '领班','主管','管理员'][user.position] }}</view>
+      </view>
+      <view class="head">
+        <van-image width="60" height="60" round fit="cover" src="{{ avatarUrl }}" />
+      </view>
+    </view>
+  </view>
+  <van-button class="btn" block bindtap="logout">退出登录</van-button>
+  <view class="margin" />
+</view>
+
+<custom-tabbar activeIndex='3' avatarUrl="{{ avatarUrl }}" />

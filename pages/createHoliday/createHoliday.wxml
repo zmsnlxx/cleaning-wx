@@ -1,0 +1,35 @@
+<wxs module="filter" src="../../utils/util.wxs" />
+<view class="create-holiday">
+  <van-cell-group>
+    <van-cell title="类型" center value="{{ form.type ? form.type : '请选择' }}" is-link clickable bind:click="showClick" data-name="type" />
+    <van-cell title="开始日期" center value="{{ form.startDay ? filter.formatTime(form.startDay) : '请选择' }}" clickable bind:click="showClick" data-name="startDay">
+      <image slot="right-icon" src="../../public/img/date-icon.png" class="custom-icon" />
+    </van-cell>
+    <van-cell title="开始时间" center value="{{ form.startHour ? form.startHour : '请选择' }}" clickable bind:click="showClick" data-name="startHour">
+      <image slot="right-icon" src="../../public/img/time-icon.png" class="custom-icon" />
+    </van-cell>
+    <van-cell title="结束日期" center value="{{ form.endDay ? filter.formatTime(form.endDay) : '请选择' }}" clickable bind:click="showClick" data-name="endDay">
+      <image slot="right-icon" src="../../public/img/date-icon.png" class="custom-icon" />
+    </van-cell>
+    <van-cell title="结束时间" center value="{{ form.endHour ? form.endHour : '请选择' }}" clickable bind:click="showClick" data-name="endHour">
+      <image slot="right-icon" src="../../public/img/time-icon.png" class="custom-icon" />
+    </van-cell>
+    <van-cell center title="说明" border="{{ false }}" />
+    <view class="input">
+      <input class="text" placeholder-class="placeholder" placeholder="请输入" bindinput="getRemark" value="{{ form.remark }}" />
+    </view>
+  </van-cell-group>
+  <van-popup show="{{ show.switch }}" position="bottom" custom-style="height: 40%;" bind:close="onCancel">
+    <van-picker wx:if="{{ show.type }}" title="请选择请假类型" show-toolbar bind:cancel="onCancel" bind:confirm="onConfirm" data-name="type" columns="{{ columns }}" />
+    <van-datetime-picker wx:if="{{ show.startDay }}" title="请选择开始日期" show-toolbar type="date" value="{{ form.startDay }}" bind:cancel="onCancel" bind:confirm="onConfirm" data-name="startDay" min-date="{{ minDate }}" formatter="{{ formatter }}" />
+    <van-datetime-picker wx:if="{{ show.startHour }}" title="请选择开始时间" show-toolbar type="time" value="{{ form.startHour }}" bind:cancel="onCancel" bind:confirm="onConfirm" data-name="startHour" />
+    <van-datetime-picker wx:if="{{ show.endDay }}" title="请选择结束日期" show-toolbar type="date" value="{{ form.endDay }}" bind:cancel="onCancel" bind:confirm="onConfirm" data-name="endDay" min-date="{{ minDate }}" formatter="{{ formatter }}" />
+    <van-datetime-picker wx:if="{{ show.endHour }}" title="请选择结束时间" show-toolbar type="time" value="{{ form.endHour }}" bind:cancel="onCancel" bind:confirm="onConfirm" data-name="endHour" />
+  </van-popup>
+  <view class="footer">
+    <van-button class="cancel" block color="#259D8F" plain bindtap="cancel">取消</van-button>
+    <van-button class="confirm" block color="#259D8F" bindtap="submit">提交</van-button>
+  </view>
+  <van-toast id="van-toast" />
+
+</view>

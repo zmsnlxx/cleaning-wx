@@ -1,0 +1,47 @@
+.create-holiday {
+  min-height: 100vh;
+  background: #EFEFEF;
+}
+.create-holiday .van-cell {
+  height: 50px;
+  font-weight: 400;
+}
+.create-holiday .van-cell .van-cell__title {
+  color: #6D6C6D;
+}
+.create-holiday .van-cell .van-cell__value {
+  color: #000000;
+}
+.create-holiday .van-cell .custom-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+  display: inline-block;
+}
+.create-holiday .input {
+  background: #FFFFFF;
+  padding: 0 16px 16px 16px;
+}
+.create-holiday .input input .placeholder {
+  font-size: 14px;
+  color: #C5C5C5;
+}
+.create-holiday .footer {
+  position: fixed;
+  bottom: 30px;
+  width: calc(100% - 48px);
+  left: 24px;
+  height: 42px;
+  display: flex;
+}
+.create-holiday .footer .cancel {
+  width: 80px;
+}
+.create-holiday .footer .confirm {
+  width: calc(100% - 96px);
+  margin-left: 16px;
+}
+.create-holiday .footer button {
+  height: 42px;
+  width: 100%;
+}

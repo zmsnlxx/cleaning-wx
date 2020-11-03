@@ -1,0 +1,184 @@
+.inspection-box {
+  min-height: 100vh;
+  background: #EFEFEF;
+
+  .info {
+    padding: 16px;
+    box-sizing: border-box;
+
+    .item {
+      font-size: 14px;
+      display: flex;
+
+      .label {
+        color: #6D6C6D;
+        font-weight: 500;
+        width: 100px;
+        margin-right: 20px;
+      }
+
+      .value {
+        color: #000000;
+        font-weight: 400;
+      }
+    }
+    .item:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  .content {
+    .cell {
+      width: 100%;
+      background: #FFFFFF;
+      padding: 0 16px;
+      box-sizing: border-box;
+      font-size: 14px;
+      color: #323233;
+
+      .label {
+        height: 42px;
+        line-height: 42px;
+      }
+
+      .van-uploader {
+        margin: 8px 0 16px 0;
+
+        .upload {
+          width: 80px;
+          height: 80px;
+          border: 1px dashed #C5C5C5;
+          font-size: 24px;
+          color: #C5C5C5;
+          border-radius: 2px;
+          text-align: center;
+          line-height: 80px;
+        }
+      }
+    }
+  }
+
+  .van-button {
+    width: 108px;
+    height: 32px;
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    button {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.sign {
+  min-height: 100vh;
+  background: #EFEFEF;
+  position: relative;
+
+  .cell {
+    height: 52px;
+    line-height: 52px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    font-size: 14px;
+
+    .left {
+      color: #6D6C6D;
+      font-weight: 500;
+    }
+
+    .right {
+      color: #000000;
+      font-weight: 600;
+    }
+  }
+
+  .content {
+    padding: 24px;
+    box-sizing: border-box;
+    margin-bottom: 300px;
+
+    .title {
+      margin-bottom: 8px;
+
+      .icon {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #259D8F;
+        margin-right: 24px;
+      }
+
+      .text {
+        color: #259D8F;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+    }
+
+    .position {
+      margin-left: 33px;
+      font-size: 14px;
+
+      .label {
+        color: #6D6C6D;
+        font-weight: 500;
+        display: inline-block;
+        margin-right: 15px;
+      }
+
+      .value {
+        color: #000000;
+        font-weight: 400;
+      }
+    }
+
+    .sign-box {
+      width: 220px;
+      height: 220px;
+      position: relative;
+      margin: 0 auto;
+
+      .round {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .hand {
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-40%);
+        z-index: 2;
+      }
+
+      .text {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        font-weight: 600;
+        color: #FFFFFF;
+
+        .sign-title {
+          font-size: 32px;
+        }
+
+        .time {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

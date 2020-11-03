@@ -1,0 +1,27 @@
+var filter = {
+  formatTime: function(params, step = '/', on = true) {
+    var date = getDate(params)
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+    var hour = date.getHours()
+    var minute = date.getMinutes()
+    var second = date.getSeconds()
+    return on ? [year, month, day].map(formatNumber).join(step) : [year, month, day].map(formatNumber).join(step) + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  },
+
+  formatHourTime: function(params) {
+    var date = getDate(params)
+    var hour = date.getHours()
+    var minute = date.getMinutes()
+    var second = date.getSeconds()
+    return [hour, minute, second].map(formatNumber).join(':')
+  },
+}
+
+var formatNumber = function (n) {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+
+module.exports = filter

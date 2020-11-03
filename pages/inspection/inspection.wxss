@@ -1,0 +1,62 @@
+.inspection-box {
+  min-height: 100vh;
+  background: #EFEFEF;
+}
+.inspection-box .info {
+  padding: 16px;
+  box-sizing: border-box;
+}
+.inspection-box .info .item {
+  font-size: 14px;
+  display: flex;
+}
+.inspection-box .info .item .label {
+  color: #6D6C6D;
+  font-weight: 500;
+  width: 100px;
+  margin-right: 20px;
+}
+.inspection-box .info .item .value {
+  color: #000000;
+  font-weight: 400;
+}
+.inspection-box .info .item:not(:last-child) {
+  margin-bottom: 16px;
+}
+.inspection-box .content .cell {
+  width: 100%;
+  background: #FFFFFF;
+  padding: 0 16px;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #323233;
+}
+.inspection-box .content .cell .label {
+  height: 42px;
+  line-height: 42px;
+}
+.inspection-box .content .cell .van-uploader {
+  margin: 8px 0 16px 0;
+}
+.inspection-box .content .cell .van-uploader .upload {
+  width: 80px;
+  height: 80px;
+  border: 1px dashed #C5C5C5;
+  font-size: 24px;
+  color: #C5C5C5;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 80px;
+}
+.inspection-box .van-button {
+  width: 108px;
+  height: 32px;
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.inspection-box .van-button button {
+  width: 100%;
+  height: 100%;
+}

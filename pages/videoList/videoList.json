@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "video-box": "../../components/video/video"
+  },
+  "navigationBarTitleText": "视频列表"
+}

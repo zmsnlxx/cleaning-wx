@@ -1,0 +1,72 @@
+<wxs module="filter" src="../../utils/util.wxs" />
+<view class="cleaning">
+  <view wx:if="{{ !isCleaning }}" class="inspection-box">
+    <view class="info">
+      <view class="item">
+        <view class="label">巡检地点</view>
+        <view class="value">{{ detail.cleaningPointName }}</view>
+      </view>
+      <view class="item">
+        <view class="label">负责保洁人员</view>
+        <view class="value">{{ detail.pername }}</view>
+      </view>
+      <view class="item">
+        <view class="label">最近打扫时间</view>
+        <view class="value">{{ filter.formatTime((detail.cleaningTime * 1000), '-', false) }}</view>
+      </view>
+    </view>
+    <view class="content">
+      <van-cell title="给保洁人员评星" content>
+        <van-rate value="{{ form.star }}" size="{{ 16 }}" color="#F4BD3A" void-color="#eee" void-icon="star" bind:change="onChange" data-name="star" />
+      </van-cell>
+      <van-cell title="完成状态" content is-link value="{{ finish || '请选择' }}" center border="{{ false }}" bind:click="showClick" />
+      <view class="cell van-hairline--bottom">
+        <view class="label">附件</view>
+        <van-uploader bind:before-read="beforeRead" use-before-read="{{ true }}" file-list="{{ fileList }}" max-count="{{ 1 }}" bind:delete="deleteImg" multiple="{{true}}" bind:after-read="afterRead">
+          <view class="upload">+</view>
+        </van-uploader>
+      </view>
+      <view class="cell van-hairline--bottom">
+        <view class="label">说明</view>
+        <van-field placeholder="请输入" border="{{ false }}" bind:change="onChange" data-name="remark" />
+      </view>
+    </view>
+    <van-button color="#259D8F" block round bindtap="submit">提交</van-button>
+  </view>
+  <view wx:else class="sign">
+    <view class="cell">
+      <view class="left">已打点次数</view>
+      <view class="right">{{ detail.num }}次</view>
+    </view>
+    <view class="content">
+      <view class="title">
+        <text class="icon" />
+        <text class="text">正在打点...</text>
+      </view>
+      <view class="position van-ellipsis">
+        <text class="label">目前位置</text>
+        <text class="value">{{ detail.cleaningPointName }}</text>
+      </view>
+      <view class="sign-box" bindtap="sign">
+        <van-image class="round" width="220" height="220" src="/public/img/sign.png"  />
+        <van-image class="hand" width="82" height="82" src="/public/img/click.png" />
+        <view class="text">
+          <view class="sign-title">打点</view>
+          <view class="time">{{ time }}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<van-toast id="van-toast" />
+
+<van-popup show="{{ show.type }}" position="bottom" custom-style="height: 40%;" bind:close="onCancel" data-name="type">
+  <van-picker title="请选择完成状态" show-toolbar bind:cancel="onCancel" bind:confirm="onConfirm" columns="{{ columns }}" />
+</van-popup>
+
+<!--<van-popup class="popup" show="{{ show.integral }}" custom-style="width: 85%; background: transparent" bind:close="onCancel" data-name="integral">-->
+<!--  <integral-box integral='{{ integral }}' />-->
+<!--  <view class="icon">-->
+<!--    <van-icon bindtap="onCancel" data-name="integral" name="close" size="32" color="#ffffff" />-->
+<!--  </view>-->
+<!--</van-popup>-->

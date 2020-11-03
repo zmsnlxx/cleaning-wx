@@ -1,0 +1,25 @@
+<view class="sign">
+  <view class="cell">
+    <view class="left">已打点次数</view>
+    <view class="right">{{ detail.num }}次</view>
+  </view>
+  <view class="content">
+    <view class="title">
+      <text class="icon" />
+      <text class="text">正在打点...</text>
+    </view>
+    <view class="position van-ellipsis">
+      <text class="label">目前位置</text>
+      <text class="value">{{ detail.cleaningPointName }}</text>
+    </view>
+    <view class="sign-box" bindtap="sign">
+      <van-image class="round" width="220" height="220" src="/public/img/sign.png"  />
+      <van-image class="hand" width="82" height="82" src="/public/img/click.png" />
+      <view class="text">
+        <view class="sign-title">打点</view>
+        <view class="time">{{ time }}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<van-toast id="van-toast" />

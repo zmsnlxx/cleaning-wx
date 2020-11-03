@@ -1,0 +1,17 @@
+<wxs module="filter" src="../../utils/util.wxs" />
+
+<view class="mall-detail">
+  <view class="cell van-hairline--bottom" wx:for="{{ list }}" wx:key="index">
+    <view class="time">{{ filter.formatTime((item.createTime * 1000), '-', false) }}</view>
+    <view class="bottom">
+      <view wx:if="{{type === '1'}}" class="item">
+        <view class="label">{{ item.remark }}</view>
+        <view class="mall">积分{{ item.integralNum }}</view>
+      </view>
+      <view wx:else class="item">
+        <view class="label">使用积分兑换{{ item.name }}一个</view>
+        <view class="mall">{{ ['兑换中','已兑换'][item.exchangeStatus] }}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "integral-box": "../components/integral/integral"
+  },
+  "navigationBarTitleText": "签到打卡"
+}

@@ -1,0 +1,28 @@
+.authorization-box {
+  min-height: 100vh;
+  background: #EFEFEF;
+  padding: 90px 24px 0;
+  box-sizing: border-box;
+}
+.authorization-box .img {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+.authorization-box .title {
+  margin-top: 72px;
+  font-size: 24px;
+  color: #000000;
+  font-weight: 600;
+}
+.authorization-box .msg {
+  font-size: 16px;
+  color: #000000;
+  font-weight: 500;
+  margin-top: 17px;
+}
+.authorization-box .footer {
+  position: fixed;
+  bottom: 30px;
+  width: calc(100% - 48px);
+}

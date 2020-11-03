@@ -1,0 +1,45 @@
+<view class="container">
+  <view class="header">
+    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+      <block wx:for="{{ movies }}" wx:key="index">
+        <swiper-item class="swiper-item">
+          <image src="{{ item.url }}" class="slide-image" mode="aspectFill" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="content">
+    <view class="card">
+      <view class="left item">
+        <view class="high" bindtap="goSign">
+          <view class="text right-text">签到打卡</view>
+          <image src="../../public/img/life.png" class="slide-image left-img" mode="bottom" />
+        </view>
+        <view class="low bottom" bindtap="scanCode">
+          <view class="text right-text">巡检</view>
+          <image src="../../public/img/inspection.png" class="slide-image left-img" mode="bottom" />
+        </view>
+      </view>
+      <view class="right item">
+        <view class="low top" bindtap="goReport">
+          <view class="text left-text">统计报表</view>
+          <image src="../../public/img/message.png" class="slide-image right-img" mode="bottom" />
+        </view>
+        <view class="high" bindtap="scanCode">
+          <view class="text left-text">日常打点</view>
+          <image src="../../public/img/medicine.png" class="slide-image right-img" mode="bottom" />
+        </view>
+      </view>
+    </view>
+    <view class="list">
+      <view class="title">
+        <view class="left">最新视频</view>
+        <view class="right" bindtap="jumpVideoList">全部视频<van-icon name="arrow" color="#259D8F" /></view>
+      </view>
+      <video-box videoList="{{ videos }}" />
+    </view>
+  </view>
+</view>
+<custom-tabbar activeIndex='0' />
+<van-toast id="van-toast" />
+

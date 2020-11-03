@@ -1,0 +1,107 @@
+.holiday {
+  background: #EFEFEF;
+  min-height: calc(100vh - 80px);
+  width: 100%;
+
+  .header {
+    width: 100%;
+    height: 118px;
+    background: #FFFFFF;
+    padding: 18px 24px 0 24px;
+    box-sizing: border-box;
+
+    .btn {
+
+      button {
+        color: #259D8F;
+        background: #EEFFF9;
+        border-radius: 2px;
+        border: 2px solid #259D8F;
+        width: 100%;
+        height: 50px;
+      }
+    }
+
+    .van-sticky {
+      height: 50px;
+    }
+
+    .van-tab--active {
+      color: #259D8F;
+    }
+  }
+
+  .list {
+    padding: 24px 16px;
+    box-sizing: border-box;
+
+    .box {
+      margin-bottom: 80px;
+
+      .card {
+        width: 100%;
+        border-radius: 2px;
+        display: flex;
+        background: #FFFFFF;
+        margin-bottom: 8px;
+
+        .content {
+          width: calc(100% - 34px);
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+          color: #999999;
+          padding: 16px;
+          box-sizing: border-box;
+
+          .title {
+            color: #000000;
+            margin-bottom: 16px;
+          }
+
+          .reason {
+            margin-top: 8px;
+            background: rgba(222, 103, 86, 0.16);
+            color: #DE6756;
+            padding: 3px 8px;
+            font-size: 12px;
+            display: inline-block;
+          }
+        }
+
+        .type {
+          width: 34px;
+          color: #FFFFFF;
+          font-size: 14px;
+          border-radius: 0 2px 2px 0;
+          margin: 0 auto;
+          text-align: center;
+          position: relative;
+
+          .text {
+            display: inline-block;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            letter-spacing: 3px;
+            color: #fff;
+            -webkit-writing-mode: vertical-lr;
+            -ms-writing-mode: lr-tb;
+            writing-mode: vertical-lr;
+          }
+        }
+        .success {
+          background: #259D8F;
+        }
+        .error {
+          background: #DE6756;
+        }
+        .pending {
+          background: #BEBEBE;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+.report {
+  min-height: 100vh;
+  background: #EFEFEF;
+}

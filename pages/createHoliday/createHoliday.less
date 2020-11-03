@@ -1,0 +1,59 @@
+.create-holiday {
+  min-height: 100vh;
+  background: #EFEFEF;
+
+  .van-cell {
+    height: 50px;
+    font-weight: 400;
+
+    .van-cell__title {
+      color: #6D6C6D;
+    }
+
+    .van-cell__value {
+      color: #000000;
+    }
+
+    .custom-icon {
+      width: 16px;
+      height: 16px;
+      margin-left: 5px;
+      display: inline-block;
+    }
+  }
+
+  .input {
+    background: #FFFFFF;
+    padding: 0 16px 16px 16px;
+
+    input {
+      .placeholder {
+        font-size: 14px;
+        color: #C5C5C5;
+      }
+    }
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 30px;
+    width: calc(100% - 48px);
+    left: 24px;
+    height: 42px;
+    display: flex;
+
+    .cancel {
+      width: 80px;
+    }
+
+    .confirm {
+      width: calc(100% - 96px);
+      margin-left: 16px;
+    }
+
+    button {
+      height: 42px;
+      width: 100%;
+    }
+  }
+}

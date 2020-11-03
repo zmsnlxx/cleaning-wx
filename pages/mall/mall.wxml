@@ -1,0 +1,56 @@
+<view class="mall">
+  <view class="header">
+    <view class="top">
+      <view class="left">
+        <view class="text">您超棒！</view>
+        <view class="text">目前您有<text class="blod">{{ user.integral || 0 }}</text>个积分</view>
+      </view>
+      <view class="right">
+        <van-image width="70px" height="70px" src="/public/img/mall.png" />
+      </view>
+    </view>
+    <view class="tabbar" bindtap="jumpMallDetail" data-type="1">
+      <text>查看积分详情</text>
+      <van-icon name="arrow" />
+    </view>
+  </view>
+  <view class="content">
+    <view class="title">
+      <view>积分兑换</view>
+      <view class="message" bindtap="jumpMallDetail" data-type="2">兑换详情</view>
+    </view>
+    <view class="box">
+      <view class="card" wx:for="{{ list }}" wx:key="index">
+        <view class="top">
+          <van-image src="{{ item.pic }}"></van-image>
+        </view>
+        <view class="bottom">
+          <view class="msg">{{ item.name }}</view>
+          <view class="text">
+            <view>
+              <text class="num">{{ item.exchangeIntegral }}</text>
+              个积分
+            </view>
+            <van-button block round color="#F4BD3A" bindtap="submit" data-row="{{ item }}">兑换</van-button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<van-popup show="{{ show }}" bind:close="onClose" custom-style="width: 82%">
+  <view class="popup-content">
+    <view class="title">
+      <view>兑换确认</view>
+      <van-icon color="#D8D8D8" size="16" bindtap="onClose" name="cross" />
+    </view>
+    <view class="content">您是否确认使用{{ currentData.exchangeIntegral }}积分兑换{{ currentData.name }}一个吗?</view>
+    <view class="popup-footer">
+      <van-button class="btn" block color="#259D8F" plain bindtap="onClose">取消</van-button>
+      <van-button class="btn" block color="#259D8F" bindtap="confirm">确认</van-button>
+    </view>
+  </view>
+</van-popup>
+<van-toast id="van-toast" />
+
+<custom-tabbar activeIndex='2' />

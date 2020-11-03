@@ -1,0 +1,39 @@
+<view class="holiday-detail">
+  <van-cell-group>
+    <van-cell center title="类型" value="{{ ['','事假', '年假'][type] }}" />
+    <van-cell center title="开始日期" value="{{ detail.startDay }}" />
+    <van-cell center title="开始时间" value="{{ detail.startHour }}" />
+    <van-cell center title="结束日期" value="{{ detail.endDay }}" />
+    <van-cell center title="结束时间" value="{{ detail.endHour }}" />
+    <van-cell center title="说明" border="{{ false }}" />
+    <view class="text">{{ detail.remark }}</view>
+  </van-cell-group>
+
+  <view class="footer">
+    <view wx:if="{{ detail.approval === 1 }}" style="height: 100%">
+      <view wx:if="{{ canIApprove }}" class="is-approve">
+        <van-button class="btn" color="#F4BD3A" bindtap="goRefuse">拒绝</van-button>
+        <van-button class="btn" color="#259D8F" bindtap="success">通过</van-button>
+      </view>
+      <van-button wx:else class="button" color="#259D8F" bindtap="withdraw">撤回</van-button>
+    </view>
+  </view>
+
+  <van-popup show="{{ show }}" bind:close="onClose" custom-style="width: 82%">
+    <view class="popup-content">
+      <view class="title">
+        <view>拒绝请假</view>
+        <van-icon color="#D8D8D8" size="16" bindtap="onClose" name="cross" />
+      </view>
+      <view class="content">
+        <view class="desc">拒绝理由</view>
+        <textarea class="textarea" placeholder-style="color: #999999" auto-height bindinput="bindTextAreaBlur" maxlength="140" placeholder="请输入" />
+      </view>
+      <view class="popup-footer">
+        <van-button class="btn" block color="#259D8F" plain bindtap="onClose">取消</van-button>
+        <van-button class="btn" block color="#259D8F" bindtap="refuse">确认</van-button>
+      </view>
+    </view>
+  </van-popup>
+</view>
+<van-toast id="van-toast" />

@@ -1,0 +1,67 @@
+<wxs module="filter" src="../../utils/util.wxs" />
+
+<view class="inspection-report">
+  <view class="header">
+    <van-tabs color="#FFFFFF" active="{{ active }}" bind:change="onChange">
+      <van-tab title="月报" />
+      <van-tab title="日报" />
+    </van-tabs>
+  </view>
+  <view wx:if="{{ active === 0 }}" class="month-box">
+    <view class="time-pick">
+      <view class="left time-box" data-name="startTime" bindtap="showClick">
+        <view class="time">{{ filter.formatTime(form.startTime, '-') }}</view>
+        <van-icon name="notes-o" color="#259D8F" size="18" />
+      </view>
+      <view class="line">-</view>
+      <view class="right time-box" data-name="endTime" bindtap="showClick">
+        <view class="time">{{ filter.formatTime(form.endTime, '-') }}</view>
+        <van-icon name="notes-o" color="#259D8F" size="18" />
+      </view>
+    </view>
+    <van-cell title="巡检地点" is-link value="{{ cleaningPointName || '请选择' }}" border="{{ false }}" bind:click="showClick" data-name="cleaningPointId" center />
+    <view class="chart">
+      <ec-canvas id="my-chart" canvas-id="my-chart-line" ec="{{ line }}" />
+    </view>
+  </view>
+  <view wx:else class="day-box">
+    <view class="time-pick">
+      <view class="time">{{ filter.formatTime(form.day, '-') }}</view>
+      <view class="pick" data-name="day" bindtap="showClick">
+        <van-icon name="notes-o" color="#259D8F" size="18" />
+        <text>切换日期</text>
+      </view>
+    </view>
+    <view class="day-content">
+      <view wx:if="{{ list.length }}">
+        <view class="card" wx:for="{{ list }}" wx:key="idx" wx:for-item="itemName">
+          <view wx:for="{{ items }}" wx:key="index" class="item">
+            <view class="label">{{ item.label }}</view>
+            <view wx:if="{{ item.id === 'finish' }}" class="value {{ itemName[item.id] === 2 ? 'wanring' : '' }}">{{ itemName[item.id] === 1 ? '完成' : '异常' }}</view>
+            <view wx:elif="{{ item.id === 'cleaningTime' }}" class="value">{{ filter.formatHourTime(itemName.cleaningTime * 1000, '-') }}</view>
+            <view wx:else class="value">{{ itemName[item.id] }}</view>
+          </view>
+        </view>
+      </view>
+      <van-empty wx:else class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="暂无数据" />
+    </view>
+  </view>
+</view>
+
+<van-popup show="{{ show.day }}" position="bottom" data-name="day" custom-style="height: 40%;" bind:close="onCancel">
+  <van-datetime-picker title="请选择日期" max-date="{{ maxDate }}" show-toolbar data-name="day" type="date" value="{{ form.day }}" bind:cancel="onCancel" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
+</van-popup>
+
+<van-popup show="{{ show.startTime }}" position="bottom" data-name="startTime" custom-style="height: 40%;" bind:close="onCancel">
+  <van-datetime-picker title="请选择日期" max-date="{{ maxDate }}" show-toolbar data-name="startTime" type="date" value="{{ form.startTime }}" bind:cancel="onCancel" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
+</van-popup>
+
+<van-popup show="{{ show.endTime }}" position="bottom" data-name="endTime" custom-style="height: 40%;" bind:close="onCancel">
+  <van-datetime-picker title="请选择日期" max-date="{{ maxDate }}" show-toolbar data-name="endTime" type="date" value="{{ form.endTime }}" bind:cancel="onCancel" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
+</van-popup>
+
+<van-popup show="{{ show.cleaningPointId }}" position="bottom" data-name="cleaningPointId" custom-style="height: 40%;" bind:close="onCancel">
+  <van-picker title="请选择巡检地点" show-toolbar data-name="cleaningPointId" bind:cancel="onCancel" bind:confirm="onConfirm" columns="{{ cleaningPoints }}" />
+</van-popup>
+<van-toast id="van-toast" />
+

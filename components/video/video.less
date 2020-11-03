@@ -1,0 +1,62 @@
+.video-box {
+  display: flex;
+  flex-wrap: wrap;
+
+  .item {
+    width: calc(50% - 6px);
+    height: 150px;
+    margin-bottom: 15px;
+
+    .video {
+      width: 100%;
+      height: 118px;
+      border-radius: 6px;
+      background: #EFEFEF;
+      position: relative;
+
+      .bg-img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        border-radius: 6px;
+      }
+
+      .play {
+        width: 38px;
+        height: 38px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .title {
+      margin-top: 4px;
+      color: #999999;
+      font-size: 12px;
+    }
+  }
+
+  .item:nth-child(2n + 1) {
+    margin-right: 12px;
+  }
+
+}
+.hide {
+  display: none;
+}
+
+.popup {
+  width: 85%;
+  background: transparent;
+
+  .icon {
+    margin-top: 12px;
+    text-align: center;
+  }
+}

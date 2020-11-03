@@ -1,0 +1,17 @@
+<view class="video-box">
+  <view wx:for="{{ videoList }}" wx:key="index" class="item" bindtap="play" data-index="{{ index }}">
+    <view class="video">
+      <image class="bg-img" fit="cover" src="{{ item.videoUrl }}?vframe/jpg/offset/1" />
+      <image class="play" src="../../public/img/play.png" />
+    </view>
+    <view class="title">{{ item.videoName }}</view>
+  </view>
+</view>
+<video id="myvideo" wx:if="{{currentVideo.videoUrl}}" class="{{ fullScreen ? '' : 'hide' }}" show-progress="{{ false }}" controls="{{ true }}" enable-progress-gesture="{{false}}" src="{{ currentVideo.videoUrl }}" autoplay bindfullscreenchange="fullScreen"  bindended="closeVideo" />
+
+<van-popup class="popup" show="{{ show }}" custom-style="width: 85%; background: transparent" bind:close="onClose">
+  <integral-box integral='{{ integral }}' />
+  <view class="icon">
+    <van-icon bindtap="onClose" name="close" size="32" color="#ffffff" />
+  </view>
+</van-popup>
