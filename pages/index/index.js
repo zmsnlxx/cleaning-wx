@@ -32,6 +32,9 @@ Page({
       onlyFromCamera: true,
       success(res) {
         console.log(res)
+        if (user.position === 1 && res.path.indexOf('inspection') !== -1) {
+          return Toast({ type: 'fail', context: this, message: '暂无权限，请联系管理员！' })
+        }
         wx.navigateTo({ url: `/${res.path}` })
       },
       fail() {
