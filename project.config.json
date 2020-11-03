@@ -4,10 +4,10 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
-		"enhance": true,
-		"postcss": true,
+		"enhance": false,
+		"postcss": false,
 		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": false,
@@ -26,9 +26,10 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
+		"bundle": true,
 		"useIsolateContext": true,
 		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
+		"userConfirmedUseCompilerModuleSwitch": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.13.0",

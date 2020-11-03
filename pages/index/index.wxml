@@ -15,7 +15,7 @@
           <view class="text right-text">签到打卡</view>
           <image src="../../public/img/life.png" class="slide-image left-img" mode="bottom" />
         </view>
-        <view class="low bottom" bindtap="scanCode">
+        <view class="low bottom" bindtap="scanCode" data-type="2">
           <view class="text right-text">巡检</view>
           <image src="../../public/img/inspection.png" class="slide-image left-img" mode="bottom" />
         </view>
@@ -25,7 +25,7 @@
           <view class="text left-text">统计报表</view>
           <image src="../../public/img/message.png" class="slide-image right-img" mode="bottom" />
         </view>
-        <view class="high" bindtap="scanCode">
+        <view class="high" bindtap="scanCode" data-type="1">
           <view class="text left-text">日常打点</view>
           <image src="../../public/img/medicine.png" class="slide-image right-img" mode="bottom" />
         </view>

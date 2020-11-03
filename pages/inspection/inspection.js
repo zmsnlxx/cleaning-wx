@@ -86,9 +86,9 @@ Page({
       Toast({
         type: 'success',
         context: this,
-        message: '打点成功',
+        message: '提交成功',
         onClose: () => {
-          wx.switchTab({ url: `/pages/index/indeex` })
+          wx.switchTab({ url: `/pages/index/index` })
         }
       });
     })

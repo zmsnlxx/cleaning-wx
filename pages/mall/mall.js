@@ -8,9 +8,11 @@ Page({
     list: [],
     currentData: {}
   },
-  onLoad() {
+  onShow() {
     const user = wx.getStorageSync('user');
     this.setData({ user })
+  },
+  onLoad() {
     ajax('/index/goods/list', { page: 1, pageSize: 99 }).then(res => {
       this.setData({ list: res.list })
     })

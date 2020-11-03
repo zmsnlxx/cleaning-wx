@@ -16,7 +16,8 @@ Page({
     form: {
       pic: '',
       must: '',
-      real: ''
+      real: '',
+      type: ''
     },
     show: { integral: false, type: false, formShow: false },
     type: '',
@@ -31,6 +32,7 @@ Page({
     this.setData({ timer: setInterval(() => this.display_time(), 1000), user })
     qqmapsdk = new QQMapWX({ key: 'TKLBZ-R7TWP-APTDI-LPXM5-72XG6-5NBFM' })
     wx.getLocation({
+      type: 'gcj02',
       success(res) {
         console.log(res)
         const { latitude, longitude } = res
@@ -144,7 +146,7 @@ Page({
     const { latitude, longitude } = wx.getStorageSync('position');
     const { lat, lng } = this.data.user
     const distance = this.GetDistance(latitude, longitude, lat, lng)
-    if ((distance * 1000) > 200) {
+    if ((distance * 1000) > 300) {
       Toast({ type: 'fail', context: this, message: '超出打卡距离', });
     } else {
       ajax('/index/sign/sign', params, 'post').then(integral => {
@@ -157,10 +159,11 @@ Page({
   },
   submit() {
     // 校验
-    const { type, real, must } = this.data.form
+    const { type, real, must, pic } = this.data.form
     if (!type) return Toast({ type: 'fail', context: this, message: '请选择考勤类型', })
     if (!real) return Toast({ type: 'fail', context: this, message: '请填写实到人数', })
     if (!must) return Toast({ type: 'fail', context: this, message: '请填写出勤人数', })
+    if (!pic && this.data.user.isphoto) return Toast({ type: 'fail', context: this, message: '请上传照片', })
     this.fetchSign(this.data.form)
   },
   showClick() {
