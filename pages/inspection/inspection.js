@@ -25,12 +25,26 @@ Page({
   onLoad(options) {
     console.log(options)
     const token = wx.getStorageSync('token');
+    const user = wx.getStorageSync('user')
+    const position = user.position.split(',')
+    // 未登录
     if (!token) {
       const currentUrl = `/pages/inspection/inspection?cleaningPointId=${options.cleaningPointId}`
       wx.setStorageSync('currentUrl', currentUrl);
       wx.setStorageSync('cleaningPointId', options.cleaningPointId);
       wx.switchTab({ url: '/pages/authorization/authorization' })
       return
+    }
+    // 没权限
+    if (!position.includes('2')) {
+      Toast({
+        type: 'fail',
+        context: this,
+        message: '暂无巡检权限，请联系管理员！',
+        onClose: () => {
+          wx.switchTab({ url: `/pages/index/index` })
+        }
+      });
     }
     if (options && options.cleaningPointId) {
       ajax('/index/cleaningCheck/info', { cleaningPointId: options.cleaningPointId }).then(detail => {

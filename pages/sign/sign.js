@@ -135,7 +135,9 @@ Page({
     this.setData({ time: this.check(hh) + ":" + this.check(mm) + ":" + this.check(ss) })
   },
   goSign() {
-    if (this.data.user.position !== 1) {
+    const position = this.data.user.position.split(',')
+    console.log(position)
+    if (position.includes('2') && this.data.user.isphoto) {
       this.setData({ 'show.formShow': true })
     } else {
       this.fetchSign()

@@ -25,14 +25,18 @@ Page({
   scanCode(e) {
     const type = e.currentTarget.dataset.type
     const user = wx.getStorageSync('user');
-    if(type === '2' && user.position === 1) {
+    const position = user.position.split(',')
+    if (!position.includes(type)) {
       return Toast({ type: 'fail', context: this, message: '暂无权限，请联系管理员！' })
     }
     wx.scanCode({
       onlyFromCamera: true,
       success(res) {
         console.log(res)
-        if (user.position === 1 && res.path.indexOf('inspection') !== -1) {
+        if (!position.includes('2') && res.path.indexOf('inspection') !== -1) {
+          return Toast({ type: 'fail', context: this, message: '暂无权限，请联系管理员！' })
+        }
+        if (!position.includes('1') && res.path.indexOf('clean') !== -1) {
           return Toast({ type: 'fail', context: this, message: '暂无权限，请联系管理员！' })
         }
         wx.navigateTo({ url: `/${res.path}` })
@@ -44,7 +48,8 @@ Page({
   },
   goReport() {
     const user = wx.getStorageSync('user');
-    if (user.position === 1) return Toast({ type: 'fail', context: this, message: '暂无权限，请联系管理员！' })
+    const position = user.position.split(',')
+    if (!position.includes('2')) return Toast({ type: 'fail', context: this, message: '暂无权限，请联系管理员！' })
     wx.navigateTo({ url: '/pages/report/report' })
   }
 })

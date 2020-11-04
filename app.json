@@ -15,7 +15,6 @@
     "pages/holiday-report/holiday-report",
     "pages/holidayDetail/holidayDetail",
     "pages/createHoliday/createHoliday",
-    "pages/cleaning/cleaning",
     "pages/clean/clean",
     "pages/inspection/inspection"
   ],

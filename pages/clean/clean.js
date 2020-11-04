@@ -11,6 +11,8 @@ Page({
   onLoad(options) {
     console.log(options)
     const token = wx.getStorageSync('token');
+    const user = wx.getStorageSync('user')
+    const position = user.position.split(',')
     if (!token) {
       const currentUrl = `/pages/clean/clean?cleaningPointId=${options.cleaningPointId}`
       wx.setStorageSync('currentUrl', currentUrl);
@@ -18,12 +20,23 @@ Page({
       wx.switchTab({ url: '/pages/authorization/authorization' })
       return
     }
+    // 没权限
+    if (!position.includes('1')) {
+      Toast({
+        type: 'fail',
+        context: this,
+        message: '暂无打点权限，请联系管理员！',
+        onClose: () => {
+          wx.switchTab({ url: `/pages/index/index` })
+        }
+      });
+    }
     if (options && options.cleaningPointId) {
       this.setData({
-        cleaningPointId: options.cleaningPointId || '5',
+        cleaningPointId: options.cleaningPointId,
         timer: setInterval(() => this.display_time(), 1000)
       })
-      ajax('/index/cleaning/signNum', { cleaningPointId: options.cleaningPointId || '5' }).then(detail => {
+      ajax('/index/cleaning/signNum', { cleaningPointId: options.cleaningPointId }).then(detail => {
         console.log(detail)
         this.setData({ detail })
       })

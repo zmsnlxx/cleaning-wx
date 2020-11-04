@@ -23,9 +23,10 @@
   </view>
 </view>
 <van-toast id="van-toast" />
+<!--wx:if="{{ user.isphoto }}"-->
 <van-popup class="popup" show="{{ show.formShow }}" position="bottom" custom-style="height: 300px;" bind:close="onFormCancel">
   <view class="submit-box">
-    <van-cell wx:if="{{ user.isphoto }}" title="照片上传" center border="{{ false }}">
+    <van-cell title="照片上传" center border="{{ false }}">
       <van-uploader bind:before-read="beforeRead" use-before-read="{{ true }}" file-list="{{ fileList }}" max-count="{{ 1 }}" bind:delete="deleteImg" multiple="{{true}}" bind:after-read="afterRead">
         <view class="upload">+</view>
       </van-uploader>
