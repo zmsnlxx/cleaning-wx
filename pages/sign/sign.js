@@ -34,7 +34,6 @@ Page({
     wx.getLocation({
       type: 'gcj02',
       success(res) {
-        console.log(res)
         const { latitude, longitude } = res
         wx.setStorageSync('position', { latitude, longitude })
 
@@ -150,10 +149,12 @@ Page({
       Toast({ type: 'fail', context: this, message: '超出打卡距离', });
     } else {
       ajax('/index/sign/sign', params, 'post').then(integral => {
-        this.setData({ integral, 'show.integral': true })
-        const user = wx.getStorageSync('user');
-        user.integral = user.integral + integral
-        wx.setStorageSync('user', user);
+        if (integral) {
+          this.setData({ integral, 'show.integral': true })
+          const user = wx.getStorageSync('user');
+          user.integral = user.integral + integral
+          wx.setStorageSync('user', user);
+        }
       })
     }
   },
