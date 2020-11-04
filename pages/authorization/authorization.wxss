@@ -25,4 +25,14 @@
   position: fixed;
   bottom: 30px;
   width: calc(100% - 48px);
+  display: flex;
+  justify-content: space-between;
+}
+.authorization-box .footer .btn {
+  width: calc(50% - 10px);
+  height: 45px;
+}
+.authorization-box .footer .btn button {
+  width: 100%;
+  height: 100%;
 }

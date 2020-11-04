@@ -1,8 +1,11 @@
 <view class="authorization-box">
   <image class="img" fit="cover" src="../../public/img/error.png" />
   <view class="title">欢迎使用</view>
-  <view class="msg">加入团队即可开始签到打卡，日常打点</view>
+  <view class="msg">该小程序为团队内部使用，加入团队前请联系管理员注册！</view>
   <view class="footer">
-    <van-button block color="#259D8F" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">加入团队</van-button>
+    <van-button class="btn" block color="#259D8F" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">加入团队</van-button>
+    <van-button class="btn" block color="#F4BD3A" bindtap="refuse">暂不加入</van-button>
   </view>
 </view>
+<van-toast id="van-toast" />
+

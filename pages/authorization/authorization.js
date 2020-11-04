@@ -1,4 +1,5 @@
 import { ajax } from '../../utils/http'
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
 
 Page({
   data: {
@@ -7,6 +8,9 @@ Page({
   onLoad() {
     // 登录
     this.wxlogin()
+  },
+  refuse() {
+    Toast({ type: 'fail', context: this, message: '该小程序为团队内部使用，未加入团队时暂无法使用！' })
   },
   wxlogin(){
     const that = this
