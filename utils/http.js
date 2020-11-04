@@ -17,7 +17,7 @@ function ajax(url, data, method) {
             wx.switchTab({ url: '/pages/authorization/authorization' })
           } else if (obj.data.code === 402) {
             // 非工作人员
-            wx.redirectTo({ url: '/pages/clean-detail/clean-detail' })
+            resolve(null)
           } else {
             wx.showToast({ title: obj.data.msg, icon: 'none' })
             reject(obj.data)

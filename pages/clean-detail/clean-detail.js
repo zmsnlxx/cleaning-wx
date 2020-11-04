@@ -10,9 +10,9 @@ Page({
     ],
     list: [],
   },
-  onReady() {
-    const cleaningPointId = wx.getStorageSync('cleaningPointId');
-    ajax('/index/report/cleaningToday', { cleaningPointId }).then(res => {
+  onLoad(options) {
+    wx.showToast({ title: options.cleaningPointId, icon: 'loading' })
+    ajax('/index/report/cleaningToday', { cleaningPointId: options.cleaningPointId }).then(res => {
       console.log(res)
       this.setData({ list: res })
     })

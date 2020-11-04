@@ -34,13 +34,23 @@ Page({
           console.log('拒绝授权')
         } else {
           ajax('/index/login/login', { encryptedData, iv, openid }, 'post').then(res => {
-            wx.setStorageSync('token', res.token);
-            wx.setStorageSync('user', res);
-            const currentUrl = wx.getStorageSync('currentUrl');
-            if (currentUrl) {
-              wx.navigateTo({ url: currentUrl })
+            if (res) {
+              wx.setStorageSync('token', res.token);
+              wx.setStorageSync('user', res);
+              const currentUrl = wx.getStorageSync('currentUrl');
+              if (currentUrl) {
+                wx.navigateTo({ url: currentUrl })
+              } else {
+                wx.switchTab({ url: '/pages/index/index' })
+              }
             } else {
-              wx.switchTab({ url: '/pages/index/index' })
+              const cleaningPointId = wx.getStorageSync('cleaningPointId');
+              console.log(cleaningPointId)
+              if (cleaningPointId) {
+                wx.redirectTo({ url: `/pages/clean-detail/clean-detail?cleaningPointId=${cleaningPointId}` })
+              } else {
+                Toast({ type: 'fail', context: this, message: '暂无访问权限，请联系管理员！' })
+              }
             }
           })
         }

@@ -9,10 +9,9 @@ Page({
     detail: null
   },
   onLoad(options) {
-    console.log(options)
+    console.log(options.cleaningPointId)
     const token = wx.getStorageSync('token');
     const user = wx.getStorageSync('user')
-    const position = user.position.split(',')
     if (!token) {
       const currentUrl = `/pages/clean/clean?cleaningPointId=${options.cleaningPointId}`
       wx.setStorageSync('currentUrl', currentUrl);
@@ -20,6 +19,12 @@ Page({
       wx.switchTab({ url: '/pages/authorization/authorization' })
       return
     }
+
+    let position
+    if (user && user.position) {
+      position = user.position.split(',')
+    }
+
     // 没权限
     if (!position.includes('1')) {
       Toast({

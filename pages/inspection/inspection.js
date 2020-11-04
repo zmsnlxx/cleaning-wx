@@ -23,10 +23,9 @@ Page({
     uploadParams: { token: '', key: '' }
   },
   onLoad(options) {
-    console.log(options)
+    console.log(options.cleaningPointId)
     const token = wx.getStorageSync('token');
     const user = wx.getStorageSync('user')
-    const position = user.position.split(',')
     // 未登录
     if (!token) {
       const currentUrl = `/pages/inspection/inspection?cleaningPointId=${options.cleaningPointId}`
@@ -34,6 +33,11 @@ Page({
       wx.setStorageSync('cleaningPointId', options.cleaningPointId);
       wx.switchTab({ url: '/pages/authorization/authorization' })
       return
+    }
+
+    let position
+    if (user && user.position) {
+      position = user.position.split(',')
     }
     // 没权限
     if (!position.includes('2')) {
