@@ -23,7 +23,6 @@ Page({
     uploadParams: { token: '', key: '' }
   },
   onLoad(options) {
-    console.log(options.cleaningPointId)
     const token = wx.getStorageSync('token');
     const user = wx.getStorageSync('user')
     // 未登录
@@ -52,7 +51,6 @@ Page({
     }
     if (options && options.cleaningPointId) {
       ajax('/index/cleaningCheck/info', { cleaningPointId: options.cleaningPointId }).then(detail => {
-        console.log(detail)
         this.setData({ detail, 'form.cleaningPointId': options.cleaningPointId, 'form.cleaningId': detail.cleaningId, canISubmit: !!detail.pername })
         if (!detail.pername) {
           Toast({
@@ -76,6 +74,7 @@ Page({
       });
     }
   },
+  preventTouchMove() {},
   onChange(event) {
     const model = event.currentTarget.dataset.name
     this.setData({ [`form.${model}`]: event.detail });
@@ -96,7 +95,6 @@ Page({
   },
   submit() {
     const { finish, attach, remark } = this.data.form
-    console.log(this.data.form)
     if (!finish) return Toast({ type: 'fail', context: this, message: '请选择完成状态!' });
     if (!attach) return Toast({ type: 'fail', context: this, message: '请上传附件!' });
     if (!remark) return Toast({ type: 'fail', context: this, message: '请填写备注!' });

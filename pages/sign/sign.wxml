@@ -23,8 +23,7 @@
   </view>
 </view>
 <van-toast id="van-toast" />
-<!--wx:if="{{ user.isphoto }}"-->
-<van-popup class="popup" show="{{ show.formShow }}" position="bottom" custom-style="height: 300px;" bind:close="onFormCancel">
+<van-popup class="popup" show="{{ show.formShow }}" catchtouchmove="preventTouchMove" position="bottom" custom-style="height: 300px;" bind:close="onFormCancel">
   <view class="submit-box">
     <van-cell title="照片上传" center border="{{ false }}">
       <van-uploader bind:before-read="beforeRead" use-before-read="{{ true }}" file-list="{{ fileList }}" max-count="{{ 1 }}" bind:delete="deleteImg" multiple="{{true}}" bind:after-read="afterRead">
@@ -47,11 +46,11 @@
     <van-button color="#259D8F" block round bindtap="submit">确认提交</van-button>
   </view>
 </van-popup>
-<van-popup show="{{ show.type }}" position="bottom" custom-style="height: 40%;" data-name="type" bind:close="onCancel">
+<van-popup show="{{ show.type }}" position="bottom" catchtouchmove="preventTouchMove" custom-style="height: 40%;" data-name="type" bind:close="onCancel">
   <van-picker title="请选择考勤类型" show-toolbar bind:cancel="onCancel" bind:confirm="onConfirm" columns="{{ columns }}" />
 </van-popup>
 
-<van-popup class="popup" show="{{ show.integral }}" data-name="integral" custom-style="width: 85%; background: transparent" bind:close="onCancel">
+<van-popup class="popup" show="{{ show.integral }}" catchtouchmove="preventTouchMove" data-name="integral" custom-style="width: 85%; background: transparent" bind:close="onCancel">
   <integral-box integral='{{ integral }}' />
   <view class="icon">
     <van-icon bindtap="onClose" name="close" size="32" color="#ffffff" />

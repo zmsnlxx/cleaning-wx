@@ -62,7 +62,7 @@ Page({
       this.setData({ signNum: res })
     })
   },
-
+  preventTouchMove() {},
   onHide() {
     clearInterval(this.data.timer)
   },
@@ -84,7 +84,6 @@ Page({
         name: 'file',
         success: (res) => {
           const { key } = JSON.parse(res.data)
-          console.log(key)
           this.setData({
             'form.pic': key
           })
@@ -112,7 +111,6 @@ Page({
       this.setData({
         fileList: this.data.fileList.concat(Object.assign(res, { isImage: true })),
       })
-      console.log(this.data.fileList)
       wx.hideLoading()
     }).catch(() => {
       wx.hideLoading()
@@ -136,7 +134,6 @@ Page({
   },
   goSign() {
     const position = this.data.user.position.split(',')
-    console.log(position)
     if (position.includes('2') && this.data.user.isphoto) {
       this.setData({ 'show.formShow': true })
     } else {
@@ -156,6 +153,8 @@ Page({
           const user = wx.getStorageSync('user');
           user.integral = user.integral + integral
           wx.setStorageSync('user', user);
+        } else {
+          Toast({ type: 'success', context: this, message: '打卡成功！', })
         }
       })
     }

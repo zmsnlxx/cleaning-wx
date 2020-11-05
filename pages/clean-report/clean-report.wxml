@@ -48,19 +48,19 @@
   </view>
 </view>
 
-<van-popup show="{{ show.day }}" position="bottom" data-name="day" custom-style="height: 50%;" bind:close="onCancel">
+<van-popup show="{{ show.day }}" catchtouchmove="preventTouchMove" position="bottom" data-name="day" custom-style="height: 50%;" bind:close="onCancel">
   <van-datetime-picker title="请选择日期" max-date="{{ maxDate }}" show-toolbar data-name="day" type="date" value="{{ form.day }}" bind:cancel="onCancel" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
 </van-popup>
 
-<van-popup show="{{ show.startTime }}" position="bottom" data-name="startTime" custom-style="height: 50%;" bind:close="onCancel">
+<van-popup show="{{ show.startTime }}" catchtouchmove="preventTouchMove" position="bottom" data-name="startTime" custom-style="height: 50%;" bind:close="onCancel">
   <van-datetime-picker title="请选择日期" max-date="{{ maxDate }}" show-toolbar data-name="startTime" type="date" value="{{ form.startTime }}" bind:cancel="onCancel" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
 </van-popup>
 
-<van-popup show="{{ show.endTime }}" position="bottom" data-name="endTime" custom-style="height: 50%;" bind:close="onCancel">
+<van-popup show="{{ show.endTime }}" catchtouchmove="preventTouchMove" position="bottom" data-name="endTime" custom-style="height: 50%;" bind:close="onCancel">
   <van-datetime-picker title="请选择日期" max-date="{{ maxDate }}" show-toolbar data-name="endTime" type="date" value="{{ form.endTime }}" bind:cancel="onCancel" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
 </van-popup>
 
-<van-popup show="{{ show.cleaningPointId }}" position="bottom" data-name="cleaningPointId" custom-style="height: 50%;" bind:close="onCancel">
+<van-popup show="{{ show.cleaningPointId }}" catchtouchmove="preventTouchMove" position="bottom" data-name="cleaningPointId" custom-style="height: 50%;" bind:close="onCancel">
   <van-picker title="请选择保洁地点" show-toolbar data-name="cleaningPointId" bind:cancel="onCancel" bind:confirm="onConfirm" columns="{{ cleaningPoints }}" />
 </van-popup>
 <van-toast id="van-toast" />

@@ -14,6 +14,7 @@ Component({
     integral: 0,
   },
   methods: {
+    preventTouchMove() {},
     play(e) {
       const videoContext = wx.createVideoContext('myvideo', this);
       videoContext.requestFullScreen();

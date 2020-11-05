@@ -19,7 +19,7 @@
       <input class="text" placeholder-class="placeholder" placeholder="请输入" bindinput="getRemark" value="{{ form.remark }}" />
     </view>
   </van-cell-group>
-  <van-popup show="{{ show.switch }}" position="bottom" custom-style="height: 40%;" bind:close="onCancel">
+  <van-popup show="{{ show.switch }}" catchtouchmove="preventTouchMove" position="bottom" custom-style="height: 40%;" bind:close="onCancel">
     <van-picker wx:if="{{ show.type }}" title="请选择请假类型" show-toolbar bind:cancel="onCancel" bind:confirm="onConfirm" data-name="type" columns="{{ columns }}" />
     <van-datetime-picker wx:if="{{ show.startDay }}" title="请选择开始日期" show-toolbar type="date" value="{{ form.startDay }}" bind:cancel="onCancel" bind:confirm="onConfirm" data-name="startDay" min-date="{{ minDate }}" formatter="{{ formatter }}" />
     <van-datetime-picker wx:if="{{ show.startHour }}" title="请选择开始时间" show-toolbar type="time" value="{{ form.startHour }}" bind:cancel="onCancel" bind:confirm="onConfirm" data-name="startHour" />

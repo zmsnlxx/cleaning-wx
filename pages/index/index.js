@@ -32,7 +32,6 @@ Page({
     wx.scanCode({
       onlyFromCamera: true,
       success(res) {
-        console.log(res)
         if (!position.includes('2') && res.path.indexOf('inspection') !== -1) {
           return Toast({ type: 'fail', context: this, message: '暂无权限，请联系管理员！' })
         }

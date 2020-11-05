@@ -114,6 +114,7 @@ Page({
     })
     this.getMonthData(this.data.form)
   },
+  preventTouchMove() {},
   onChange(e) {
     const active = e.detail.name
     this.setData({ active })

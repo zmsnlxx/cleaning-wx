@@ -17,8 +17,8 @@ Page({
       this.setData({ list: res.list })
     })
   },
+  preventTouchMove() {},
   submit(e) {
-    console.log(e.currentTarget.dataset.row)
     this.setData({ show: true, currentData: e.currentTarget.dataset.row })
   },
   onClose() {

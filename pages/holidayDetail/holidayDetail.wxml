@@ -19,7 +19,7 @@
     </view>
   </view>
 
-  <van-popup show="{{ show }}" bind:close="onClose" custom-style="width: 82%">
+  <van-popup catchtouchmove="preventTouchMove" show="{{ show }}" bind:close="onClose" custom-style="width: 82%">
     <view class="popup-content">
       <view class="title">
         <view>拒绝请假</view>

@@ -17,14 +17,12 @@ Page({
     wx.login({
       success: res => {
         ajax('/index/login/wx', { code: res.code }).then(res => {
-          console.log(res)
           that.setData({ openid: res.openid });
         })
       }
     })
   },
   getPhoneNumber(e) {
-    console.log(e)
     const that = this;
     const { encryptedData, iv } = e.detail
     const openid = this.data.openid
@@ -45,7 +43,6 @@ Page({
               }
             } else {
               const cleaningPointId = wx.getStorageSync('cleaningPointId');
-              console.log(cleaningPointId)
               if (cleaningPointId) {
                 wx.redirectTo({ url: `/pages/clean-detail/clean-detail?cleaningPointId=${cleaningPointId}` })
               } else {

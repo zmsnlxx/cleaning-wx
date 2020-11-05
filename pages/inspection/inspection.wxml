@@ -37,7 +37,7 @@
 </view>
 <van-toast id="van-toast" />
 
-<van-popup show="{{ show.type }}" position="bottom" custom-style="height: 40%;" bind:close="onCancel">
+<van-popup catchtouchmove="preventTouchMove" show="{{ show.type }}" position="bottom" custom-style="height: 40%;" bind:close="onCancel">
   <van-picker title="请选择完成状态" show-toolbar bind:cancel="onCancel" bind:confirm="onConfirm" columns="{{ columns }}" />
 </van-popup>
 

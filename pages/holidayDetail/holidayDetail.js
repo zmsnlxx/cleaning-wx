@@ -26,6 +26,7 @@ Page({
       });
     })
   },
+  preventTouchMove() {},
   success() {
     ajax('/index/leave/approval', { leaveId: this.data.detail.leaveId, approval: 2 }, 'post').then(() => {
       Toast({

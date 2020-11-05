@@ -9,7 +9,6 @@ Page({
     detail: null
   },
   onLoad(options) {
-    console.log(options.cleaningPointId)
     const token = wx.getStorageSync('token');
     const user = wx.getStorageSync('user')
     if (!token) {
@@ -42,7 +41,6 @@ Page({
         timer: setInterval(() => this.display_time(), 1000)
       })
       ajax('/index/cleaning/signNum', { cleaningPointId: options.cleaningPointId }).then(detail => {
-        console.log(detail)
         this.setData({ detail })
       })
     } else {

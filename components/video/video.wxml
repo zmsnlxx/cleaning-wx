@@ -9,7 +9,7 @@
 </view>
 <video id="myvideo" wx:if="{{currentVideo.videoUrl}}" class="{{ fullScreen ? '' : 'hide' }}" show-progress="{{ false }}" controls="{{ true }}" enable-progress-gesture="{{false}}" src="{{ currentVideo.videoUrl }}" autoplay bindfullscreenchange="fullScreen"  bindended="closeVideo" />
 
-<van-popup class="popup" show="{{ show }}" custom-style="width: 85%; background: transparent" bind:close="onClose">
+<van-popup class="popup" catchtouchmove="preventTouchMove" show="{{ show }}" custom-style="width: 85%; background: transparent" bind:close="onClose">
   <integral-box integral='{{ integral }}' />
   <view class="icon">
     <van-icon bindtap="onClose" name="close" size="32" color="#ffffff" />

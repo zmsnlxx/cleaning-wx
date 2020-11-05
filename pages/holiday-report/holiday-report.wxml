@@ -24,10 +24,10 @@
   </view>
 </view>
 
-<van-popup show="{{ show.date }}" position="bottom" data-name="date" custom-style="height: 40%;" bind:close="onCancel">
+<van-popup show="{{ show.date }}" catchtouchmove="preventTouchMove" position="bottom" data-name="date" custom-style="height: 40%;" bind:close="onCancel">
   <van-datetime-picker title="请选择日期" max-date="{{ maxDate }}" show-toolbar data-name="date" type="date" value="{{ form.day }}" bind:cancel="onCancel" bind:confirm="onDateConfirm" min-date="{{ minDate }}" formatter="{{ formatter }}" />
 </van-popup>
 
-<van-popup show="{{ show.type }}" position="bottom" data-name="type" custom-style="height: 40%;" bind:close="onCancel">
+<van-popup show="{{ show.type }}" catchtouchmove="preventTouchMove" position="bottom" data-name="type" custom-style="height: 40%;" bind:close="onCancel">
   <van-picker title="请选择完成状态" value="{{ form.type }}" data-name="type" show-toolbar bind:cancel="onCancel" bind:confirm="onTypeConfirm" columns="{{ columns }}" />
 </van-popup>

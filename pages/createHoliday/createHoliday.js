@@ -34,6 +34,7 @@ Page({
       return value
     },
   },
+  preventTouchMove() {},
   showClick(e) {
     const value = e.currentTarget.dataset.name
     this.setData({ [`show.${value}`]: true, 'show.switch': true })

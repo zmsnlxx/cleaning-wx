@@ -38,7 +38,7 @@
     </view>
   </view>
 </view>
-<van-popup show="{{ show }}" bind:close="onClose" custom-style="width: 82%">
+<van-popup show="{{ show }}" bind:close="onClose" catchtouchmove="preventTouchMove" custom-style="width: 82%">
   <view class="popup-content">
     <view class="title">
       <view>兑换确认</view>

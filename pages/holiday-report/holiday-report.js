@@ -29,6 +29,7 @@ Page({
   onLoad() {
     this.fetchData()
   },
+  preventTouchMove() {},
   fetchData() {
     const params = Object.assign({}, this.data.form, { day: parseInt(this.data.form.day / 1000) })
     ajax('/index/report/signDaily', params).then(res => {

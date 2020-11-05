@@ -6,7 +6,6 @@ Page({
     list: [],
   },
   onShow() {
-    console.log(this.data.active)
     const api = this.data.active === 0 ? '/index/leave/myStart' : '/index/leave/myApproval'
 
     ajax(api, { page: 1, pageSize: 99 }).then(res => {
