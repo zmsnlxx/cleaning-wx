@@ -13,10 +13,10 @@
           <view class="title">{{ item.pername }}</view>
           <view class="desc">{{ ['','事假', '年假'][item.type] }}</view>
           <view class="time">{{ item.startDay }} {{ item.startHour }} - {{ item.endDay }} {{ item.endHour }}</view>
-          <text wx:if="{{ item.approval === 3 }}" class="reason">拒绝理由：{{ item.reason }}</text>
+          <text wx:if="{{ item.approval === 4 }}" class="reason">拒绝理由：{{ item.reason }}</text>
         </view>
-        <view class="type {{ ['pending','pending', 'success', 'error'][item.approval] }}">
-          <text class="text">{{ ['撤回', '申请中', '已通过', '拒绝'][item.approval] }}</text>
+        <view class="type {{ ['pending','pending', 'pending', 'success', 'error'][item.approval] }}">
+          <text class="text">{{ ['撤回', '申请中', '申请中', '已通过', '拒绝'][item.approval] }}</text>
         </view>
       </view>
     </view>
