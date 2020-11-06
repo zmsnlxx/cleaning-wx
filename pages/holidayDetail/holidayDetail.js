@@ -8,11 +8,12 @@ Page({
     canIApprove: false,
     autosize: { minHeight: 78 },
     type: 0,
-    reason: ''
+    reason: '',
+    showBtn: true
   },
   onLoad(option) {
     const detail = wx.getStorageSync('currentHolidayData')
-    this.setData({ detail, canIApprove: option.type === '1', type: Number(detail.type) })
+    this.setData({ detail, canIApprove: option.type === '1', type: Number(detail.type), showBtn: [1,2].includes(detail.approval) })
   },
   withdraw() {
     ajax('/index/leave/remove', { leaveId: this.data.detail.leaveId }, 'post').then(() => {
