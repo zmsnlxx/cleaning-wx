@@ -1,5 +1,5 @@
 import { ajax } from '../../utils/http'
-import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
 
 const QQMapWX = require('../../utils/qqmap-wx-jssdk.js')
 let qqmapsdk
@@ -17,17 +17,16 @@ Page({
       pic: '',
       must: '',
       real: '',
-      type: ''
+      type: '',
     },
     show: { integral: false, type: false, formShow: false },
     type: '',
-    columns:  [
+    columns: [
       { text: '签到', value: 1 },
-      { text: '签退', value: 2 },
-    ]
+    ],
   },
   onLoad() {
-    const user = wx.getStorageSync('user');
+    const user = wx.getStorageSync('user')
     const that = this
     this.setData({ timer: setInterval(() => this.display_time(), 1000), user })
     qqmapsdk = new QQMapWX({ key: 'TKLBZ-R7TWP-APTDI-LPXM5-72XG6-5NBFM' })
@@ -54,9 +53,9 @@ Page({
           message: '获取位置信息失败，暂无法打卡',
           onClose: () => {
             wx.switchTab({ url: `/pages/index/index` })
-          }
+          },
         })
-      }
+      },
     })
     ajax('/index/sign/signNum').then(res => {
       this.setData({ signNum: res })
@@ -85,22 +84,22 @@ Page({
         success: (res) => {
           const { key } = JSON.parse(res.data)
           this.setData({
-            'form.pic': key
+            'form.pic': key,
           })
           resolve({ url: `http://cdn.fledchina.com/${key}` })
         },
-        fail: (err) => { reject(err) }
-      });
+        fail: (err) => { reject(err) },
+      })
     })
   },
   beforeRead(e) {
-    const { callback } = e.detail;
+    const { callback } = e.detail
     ajax('/admin/upload/token').then(res => {
       this.setData({
         'uploadParams.key': encodeURI(Date.now() + '' + Math.floor(Math.random() * 10000)),
         'uploadParams.token': res.token,
       })
-      callback(true);
+      callback(true)
     })
   },
 
@@ -114,7 +113,7 @@ Page({
       wx.hideLoading()
     }).catch(() => {
       wx.hideLoading()
-      wx.showToast({ title: '上传失败！', icon: 'none', })
+      wx.showToast({ title: '上传失败！', icon: 'none' })
     })
   },
 
@@ -130,7 +129,7 @@ Page({
     let hh = now.getHours()
     let mm = now.getMinutes()
     let ss = now.getSeconds()
-    this.setData({ time: this.check(hh) + ":" + this.check(mm) + ":" + this.check(ss) })
+    this.setData({ time: this.check(hh) + ':' + this.check(mm) + ':' + this.check(ss) })
   },
   goSign() {
     const position = this.data.user.position.split(',')
@@ -141,20 +140,28 @@ Page({
     }
   },
   fetchSign(params = null) {
-    const { latitude, longitude } = wx.getStorageSync('position');
+    const { latitude, longitude } = wx.getStorageSync('position')
     const { lat, lng } = this.data.user
     const distance = this.GetDistance(latitude, longitude, lat, lng)
     if ((distance * 1000) > 300) {
-      Toast({ type: 'fail', context: this, message: '超出打卡距离', });
+      Toast({ type: 'fail', context: this, message: '超出打卡距离' })
     } else {
       ajax('/index/sign/sign', params, 'post').then(integral => {
         if (integral) {
           this.setData({ integral, 'show.integral': true })
-          const user = wx.getStorageSync('user');
+          const user = wx.getStorageSync('user')
           user.integral = user.integral + integral
-          wx.setStorageSync('user', user);
+          wx.setStorageSync('user', user)
         } else {
-          Toast({ type: 'success', context: this, message: '打卡成功！', })
+          this.setData({ 'show.formShow': false })
+          Toast({
+            type: 'success',
+            context: this,
+            message: '打卡成功！',
+            onClose: () => {
+              wx.switchTab({ url: `/pages/index/index` })
+            },
+          })
         }
       })
     }
@@ -162,10 +169,10 @@ Page({
   submit() {
     // 校验
     const { type, real, must, pic } = this.data.form
-    if (!type) return Toast({ type: 'fail', context: this, message: '请选择考勤类型', })
-    if (!real) return Toast({ type: 'fail', context: this, message: '请填写实到人数', })
-    if (!must) return Toast({ type: 'fail', context: this, message: '请填写出勤人数', })
-    if (!pic && this.data.user.isphoto) return Toast({ type: 'fail', context: this, message: '请上传照片', })
+    if (!type) return Toast({ type: 'fail', context: this, message: '请选择考勤类型' })
+    if (!real) return Toast({ type: 'fail', context: this, message: '请填写实到人数' })
+    if (!must) return Toast({ type: 'fail', context: this, message: '请填写出勤人数' })
+    if (!pic && this.data.user.isphoto) return Toast({ type: 'fail', context: this, message: '请上传照片' })
     this.fetchSign(this.data.form)
   },
   showClick() {
@@ -182,7 +189,7 @@ Page({
     this.setData({
       type: e.detail.value.text,
       'form.type': e.detail.value.value,
-      'show.type': false
+      'show.type': false,
     })
   },
   check(a) { return a < 10 ? '0' + a : a },
@@ -203,5 +210,5 @@ Page({
       'show.formShow': false,
     })
     wx.switchTab({ url: '/pages/index/index' })
-  }
+  },
 })

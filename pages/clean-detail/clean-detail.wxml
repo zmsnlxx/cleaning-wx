@@ -1,7 +1,7 @@
 <view class="clean-detail">
   <view class="content">
     <view class="cleanName">{{ list[0].cleaningPointName }}</view>
-    <van-image />
+<!--    <van-image />-->
     <view wx:if="{{ list.length }}">
       <view class="card" wx:for="{{ list }}" wx:key="idx" wx:for-item="itemName">
         <view wx:for="{{ items }}" wx:key="index" class="item">
