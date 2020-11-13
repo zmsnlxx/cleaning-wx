@@ -12,7 +12,7 @@
     <van-image src="{{ pic ? pic : '/public/img/default.png' }}" />
     <view class="sign-num">
       <view class="text">签到人数</view>
-      <view class="num">{{ signList.length || 0 }}</view>
+      <view class="num">{{ count }}</view>
     </view>
     <view wx:if="{{ signList.length }}" class="sign-box">
       <view wx:for="{{ signList }}" wx:key="index" class="item">

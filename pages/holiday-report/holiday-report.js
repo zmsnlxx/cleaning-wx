@@ -12,6 +12,7 @@ Page({
       day: new Date().getTime(),
       type: '1'
     },
+    count: 0,
     type: '签到',
     columns: [
       { text: '签到', value: 1 },
@@ -33,7 +34,8 @@ Page({
   fetchData() {
     const params = Object.assign({}, this.data.form, { day: parseInt(this.data.form.day / 1000) })
     ajax('/index/report/signDaily', params).then(res => {
-      this.setData({ signList: res.signList, pic: res.pic })
+      const { signList, pic, count } = res
+      this.setData({ signList, pic, count })
     })
   },
   showClick(e) {

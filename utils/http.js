@@ -4,7 +4,7 @@ function ajax(url, data, method) {
   const header = { token }
   return new Promise((resolve, reject) => {
     wx.request({
-      url: `https://cleaning.newband.com${url}`,
+      url: `https://api-cleaning.allin-china.com${url}`,
       data: params || {},
       header,
       method: method || 'get',
