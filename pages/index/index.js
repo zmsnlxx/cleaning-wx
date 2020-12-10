@@ -12,9 +12,16 @@ Page({
     videos: [],
   },
   onShow() {
-    ajax('/index/video/list', { page: 1, pageSize: 4 }).then(res => {
-      this.setData({ videos: res.list })
-    })
+    const token = wx.getStorageSync('token')
+    if (!token) {
+      Toast({ type: 'fail', context: this, message: '暂未登录，请登录后访问！', onClose: () => {
+        wx.switchTab({ url: '/pages/authorization/authorization' })
+      } })
+    } else {
+      ajax('/index/video/list', { page: 1, pageSize: 4 }).then(res => {
+        this.setData({ videos: res.list })
+      })
+    }
   },
   jumpVideoList() {
     wx.navigateTo({ url: '/pages/videoList/videoList' })
