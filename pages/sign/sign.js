@@ -143,7 +143,7 @@ Page({
     const { latitude, longitude } = wx.getStorageSync('position')
     const { lat, lng } = this.data.user
     const distance = this.GetDistance(latitude, longitude, lat, lng)
-    if ((distance * 1000) > 300) {
+    if ((distance * 1000) > 1000) {
       Toast({ type: 'fail', context: this, message: '超出打卡距离' })
     } else {
       ajax('/index/sign/sign', params, 'post').then(integral => {
