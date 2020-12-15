@@ -32,6 +32,7 @@ Page({
     qqmapsdk = new QQMapWX({ key: 'TKLBZ-R7TWP-APTDI-LPXM5-72XG6-5NBFM' })
     wx.getLocation({
       type: 'gcj02',
+      isHighAccuracy: true,
       success(res) {
         const { latitude, longitude } = res
         wx.setStorageSync('position', { latitude, longitude })
