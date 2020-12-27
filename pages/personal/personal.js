@@ -14,5 +14,8 @@ Page({
   logout() {
     wx.clearStorage()
     wx.switchTab({ url: `/pages/authorization/authorization` })
+  },
+  login() {
+    wx.navigateTo({ url: '/pages/login/login' })
   }
 })

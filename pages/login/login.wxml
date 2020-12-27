@@ -1,0 +1,21 @@
+<view class="login">
+  <image class="bg" src="../../public/img/login-bg.png" />
+  <view class="content">
+    <view class="header">你好，管理员</view>
+    <view class="info">登录即可查看各组织的考勤日报</view>
+
+    <view class="login-box">
+      <van-field value="{{ params.phone }}" bind:change="onChange" data-name="phone" center type="text" clearable placeholder="请输入账号">
+        <van-icon slot="left-icon" size="24" color="#259D8F" name="graphic" />
+      </van-field>
+      <van-field value="{{ params.password }}" bind:change="onChange" data-name="password" center type="password" clearable placeholder="请输入密码">
+        <van-icon slot="left-icon" size="24" color="#259D8F" name="lock" />
+      </van-field>
+    </view>
+    <view class="footer">
+      <van-button class="btn" block color="#259D8F" bindtap="login">登录</van-button>
+    </view>
+  </view>
+</view>
+
+<van-toast id="van-toast" />

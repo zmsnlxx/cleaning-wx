@@ -1,0 +1,28 @@
+<wxs module="filter" src="../../utils/util.wxs" />
+
+<view class="attendance-report">
+  <view class="time-pick">
+    <view class="time">{{ filter.formatTime(form.day, '-') }}</view>
+    <view class="pick" data-name="day" bindtap="showClick">
+      <van-icon name="notes-o" color="#259D8F" size="18" />
+      <text>切换日期</text>
+    </view>
+  </view>
+  <view class="day-content">
+    <view wx:if="{{ list.length }}">
+      <view class="card" wx:for="{{ list }}" wx:key="idx" wx:for-item="itemName">
+        <view wx:for="{{ items }}" wx:key="index" class="item">
+          <view class="label">{{ item.label }}</view>
+          <view wx:if="{{ item.id === 'finish' }}" class="value">完成</view>
+          <view wx:elif="{{ item.id === 'cleaningTime' }}" class="value">{{ filter.formatHourTime(itemName.cleaningTime * 1000, '-') }}</view>
+          <view wx:else class="value">{{ itemName[item.id] }}</view>
+        </view>
+      </view>
+    </view>
+    <van-empty wx:else class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="暂无数据" />
+  </view>
+</view>
+
+<van-popup show="{{ show.day }}" catchtouchmove="preventTouchMove" position="bottom" data-name="day" custom-style="height: 50%;" bind:close="onCancel">
+  <van-datetime-picker title="请选择日期" max-date="{{ maxDate }}" show-toolbar data-name="day" type="date" value="{{ form.day }}" bind:cancel="onCancel" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
+</van-popup>

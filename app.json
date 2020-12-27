@@ -16,7 +16,9 @@
     "pages/holidayDetail/holidayDetail",
     "pages/createHoliday/createHoliday",
     "pages/clean/clean",
-    "pages/inspection/inspection"
+    "pages/inspection/inspection",
+    "pages/login/login",
+    "pages/attendance-report/attendance-report"
   ],
   "window": {
     "backgroundTextStyle": "light",

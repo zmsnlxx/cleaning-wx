@@ -11,9 +11,12 @@
       </view>
     </view>
   </view>
-  <view class="change">
+  <view class="change" bindtap="login">
     <image class="change-btn" src="../../public/img/btn.png" />
-    <view class="text">lxx</view>
+    <view class="text">
+      <view>点击切换为管理员</view>
+      <image src="../../public/img/change.png" />
+    </view>
   </view>
   <van-button class="btn" block bindtap="logout">退出登录</van-button>
   <view class="margin" />
