@@ -2,6 +2,24 @@
   background: #EFEFEF;
   min-height: calc(100vh - 80px);
 }
+.personal .change {
+  position: relative;
+}
+.personal .change .change-btn {
+  width: 100%;
+  height: 130px;
+  margin-top: 42px;
+}
+.personal .change .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 60%;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+}
 .personal .btn {
   width: calc(100% - 48px);
   position: absolute;

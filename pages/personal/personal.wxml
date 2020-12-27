@@ -11,6 +11,10 @@
       </view>
     </view>
   </view>
+  <view class="change">
+    <image class="change-btn" src="../../public/img/btn.png" />
+    <view class="text">lxx</view>
+  </view>
   <van-button class="btn" block bindtap="logout">退出登录</van-button>
   <view class="margin" />
 </view>
