@@ -1,0 +1,28 @@
+<view class="add-report">
+  <van-cell-group>
+    <van-field
+      value="{{ form.title }}"
+      placeholder="请输入标题"
+      label="标题"
+      data-name="title"
+      bind:change="onChange"
+    />
+    <van-field
+      value="{{ form.content }}"
+      label="内容"
+      type="textarea"
+      placeholder="请输入内容"
+      autosize
+      bind:change="onChange"
+      data-name="content"
+    />
+    <van-cell title="类型" data-name="type" value="{{ type }}" bind:click="onClick" is-link />
+  </van-cell-group>
+  <van-button class="btn" block bindtap="submit">提交报表</van-button>
+
+  <van-popup show="{{ show }}" catchtouchmove="preventTouchMove" position="bottom" custom-style="height: 50%;" bind:close="onCancel">
+    <van-picker title="请选择报表类型" show-toolbar bind:cancel="onCancel" bind:confirm="onConfirm" columns="{{ types }}" />
+  </van-popup>
+</view>
+<van-toast id="van-toast" />
+

@@ -18,7 +18,10 @@
     "pages/clean/clean",
     "pages/inspection/inspection",
     "pages/login/login",
-    "pages/attendance-report/attendance-report"
+    "pages/attendance-report/attendance-report",
+    "pages/report-detail/report-detail",
+    "pages/add-report/add-report",
+    "pages/my-report/my-report"
   ],
   "window": {
     "backgroundTextStyle": "light",

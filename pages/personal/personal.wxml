@@ -18,6 +18,7 @@
       <image src="../../public/img/change.png" />
     </view>
   </view>
+  <van-button class="btn report" block bindtap="goReport">我的报表</van-button>
   <van-button class="btn" block bindtap="logout">退出登录</van-button>
   <view class="margin" />
 </view>

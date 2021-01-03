@@ -1,0 +1,14 @@
+<wxs module="filter" src="../../utils/util.wxs" />
+
+<view class="my-report">
+  <view class="header">
+    <van-tabs color="#FFFFFF" active="{{ active }}" bind:change="onChange">
+      <van-tab title="周报" />
+      <van-tab title="月报" />
+    </van-tabs>
+  </view>
+  <view class="content">
+    <van-cell wx:for="{{ list }}" wx:key="index" bind:click="goDetail" data-index="{{ index }}" title="{{ item.title }}" value="{{ filter.formatTime(item.createTime * 1000, '-') }}" is-link />
+  </view>
+  <view class="add-report" bindtap="addReport">填报</view>
+</view>

@@ -17,5 +17,8 @@ Page({
   },
   login() {
     wx.navigateTo({ url: '/pages/login/login' })
+  },
+  goReport() {
+    wx.navigateTo({ url: '/pages/my-report/my-report' })
   }
 })

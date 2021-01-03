@@ -1,0 +1,30 @@
+.my-report {
+  background: #EFEFEF;
+  min-height: 100vh;
+}
+.my-report .header {
+  height: 50px;
+  background: #259D8F;
+}
+.my-report .header .van-sticky {
+  height: 50px;
+}
+.my-report .header .van-sticky .van-tabs__nav {
+  background: #259D8F;
+}
+.my-report .header .van-sticky .van-tabs__nav .van-tab {
+  color: #FFFFFF;
+}
+.my-report .add-report {
+  position: fixed;
+  bottom: 50px;
+  right: 11px;
+  width: 60px;
+  height: 60px;
+  background: #259D8F;
+  border-radius: 50% 50%;
+  box-shadow: 0 -1px 12px 0 rgba(37, 157, 143, 0.4);
+  text-align: center;
+  line-height: 60px;
+  color: #FFFFFF;
+}

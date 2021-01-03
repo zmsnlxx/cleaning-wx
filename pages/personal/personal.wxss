@@ -38,6 +38,9 @@
   background: #EEFFF9;
   border-radius: 2px;
 }
+.personal .report {
+  bottom: 150px;
+}
 .personal .header {
   width: 100%;
   height: 150px;

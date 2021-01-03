@@ -1,3 +1,4 @@
+
 var filter = {
   formatTime: function(params, step = '/', on = true) {
     var date = getDate(params)

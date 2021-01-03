@@ -1,0 +1,16 @@
+.add-report {
+  min-height: 100vh;
+  background: #EFEFEF;
+  position: relative;
+}
+.add-report .btn {
+  width: calc(100% - 48px);
+  position: absolute;
+  bottom: 30px;
+  left: 24px;
+}
+.add-report .btn button {
+  color: #259D8F;
+  background: #EEFFF9;
+  border-radius: 2px;
+}

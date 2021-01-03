@@ -1,0 +1,9 @@
+<wxs module="filter" src="../../utils/util.wxs" />
+
+<view class="report-detail">
+  <van-cell title="标题" value="{{ detail.title }}" />
+  <van-cell title="内容" value="{{ detail.content }}" />
+  <van-cell title="类型" value="{{ detail.type === 1 ? '周报' : '月报' }}" />
+  <van-cell title="创建人" value="{{ detail.pername }}" />
+  <van-cell title="创建时间" value="{{ filter.formatTime(detail.createTime * 1000, '-') }}" />
+</view>
