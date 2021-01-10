@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/claim-record/claim-record",
+    "pages/personal/personal",
+    "pages/warehouse/warehouse",
     "pages/clean-detail/clean-detail",
     "pages/clean-report/clean-report",
     "pages/inspection-report/inspection-report",
@@ -9,7 +12,6 @@
     "pages/mall/mall",
     "pages/mallDetail/mallDetail",
     "pages/sign/sign",
-    "pages/personal/personal",
     "pages/authorization/authorization",
     "pages/holiday/holiday",
     "pages/holiday-report/holiday-report",
@@ -48,7 +50,10 @@
     "van-dialog": "/miniprogram_npm/@vant/weapp/dialog/index",
     "van-uploader": "/miniprogram_npm/@vant/weapp/uploader/index",
     "van-rate": "/miniprogram_npm/@vant/weapp/rate/index",
-    "van-empty": "/miniprogram_npm/@vant/weapp/empty/index"
+    "van-empty": "/miniprogram_npm/@vant/weapp/empty/index",
+    "van-search": "/miniprogram_npm/@vant/weapp/search/index",
+    "van-collapse": "/miniprogram_npm/@vant/weapp/collapse/index",
+    "van-collapse-item": "/miniprogram_npm/@vant/weapp/collapse-item/index"
   },
   "tabBar": {
     "backgroundColor": "#ffffff",

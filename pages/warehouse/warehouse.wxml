@@ -1,0 +1,58 @@
+<view class="warehouse">
+  <van-search shape="round" background="#EFEFEF" value="{{ value }}" right-icon="search" placeholder="请输入名称关键词" use-left-icon-slot input-class="input-class" bind:search="search" />
+  <view class="content">
+    <van-collapse value="{{ activeName }}" bind:change="onChange">
+      <van-collapse-item wx:for="{{ list }}" wx:key="index" title="{{ item.typeName }}" name="{{ item.type }}">
+        <view class="item van-hairline--bottom" wx:for="{{ item.list }}" wx:for-item="i" wx:key="index" wx:for-index="id">
+          <view class="label">
+            <view class="name">{{ i.name }}</view>
+            <view wx:if="{{ user.position === '3' }}" class="stock">| {{ i.stock }}{{ i.unit }}</view>
+            <view wx:else class="stock">
+              <view wx:if="{{ i.order }}" class="stock">已选{{ i.order }}{{ i.unit }}</view>
+            </view>
+          </view>
+          <view class="value" bindtap="open" data-order="{{ i.order ? i.warehouseId : '' }}" data-classIndex="{{ index }}" data-index="{{ id }}">{{ user.position === '3' ? '调整库存' : i.order ? '更改数量' : '申领' }}</view>
+        </view>
+      </van-collapse-item>
+    </van-collapse>
+  </view>
+  <view class="footer" wx:if="{{ user.position !== '3' }}">
+    <view class="left">
+      <text>已选申领物品</text>
+      <text class="value">{{ params.applys.length }}</text>
+    </view>
+    <view class="right" bindtap="clickBtn">确认申领</view>
+  </view>
+</view>
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />
+<van-popup show="{{ show }}" bind:close="onClose" custom-style="width: 85%" custom-class="popup" class="popup">
+  <view class="box">
+    <view class="header">
+      <text>{{ user.position === '3' ? '调整库存' : '申领' }}</text>
+      <van-icon bindtap="onClose" name="cross" size="20" />
+    </view>
+    <view class="box-content">
+      <view class="list">
+        <view class="item">
+          <view class="label">类型</view>
+          <view class="value">{{ list[classindex].typeName }}</view>
+        </view>
+        <view wx:for="{{ labels }}" wx:key="index" class="item">
+          <view class="label">{{ item.name }}</view>
+          <view class="value">{{ row[item.id] }}</view>
+        </view>
+      </view>
+      <view class="input-box">
+        <view class="label">{{ user.position === '3' ? '库存数量' : '申领数量' }}</view>
+        <input value="{{ num }}" class="input" type="number" bindinput="input" placeholder="请输入"  />
+      </view>
+    </view>
+    <view class="footer">
+      <van-button plain class="plain" bindtap="onClose">取消</van-button>
+      <van-button color="#259D8F" bindtap="submit">确定</van-button>
+    </view>
+  </view>
+</van-popup>
+
+

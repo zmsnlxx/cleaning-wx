@@ -1,0 +1,120 @@
+.warehouse {
+  min-height: calc(100vh - 60px);
+  background: #EFEFEF;
+  position: relative;
+  padding-bottom: 60px;
+}
+.warehouse .van-search {
+  padding: 16px;
+}
+.warehouse .van-search .van-search__content {
+  background: #EEFFF9;
+}
+.warehouse .van-cell {
+  background: transparent;
+}
+.warehouse .van-collapse-item__content {
+  padding: 0 16px;
+}
+.warehouse .item {
+  height: 50px;
+  line-height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.warehouse .item .label {
+  display: flex;
+}
+.warehouse .item .label .name {
+  color: #000000;
+  margin-right: 6px;
+}
+.warehouse .item .label .stock {
+  color: #999999;
+}
+.warehouse .item .value {
+  color: #259D8F;
+}
+.warehouse .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  line-height: 50px;
+  font-size: 14px;
+  display: flex;
+  width: 100%;
+}
+.warehouse .footer .left {
+  background: #EEFFF9;
+  color: #000000;
+  width: 65%;
+  padding: 0 16px;
+}
+.warehouse .footer .left .value {
+  margin-left: 10px;
+  color: #259D8F;
+}
+.warehouse .footer .right {
+  background: #259D8F;
+  width: 35%;
+  color: #FFFFFF;
+  text-align: center;
+}
+.popup .box {
+  border-radius: 6px;
+  background: #FFFFFF;
+  padding: 16px;
+}
+.popup .box .header {
+  display: flex;
+  justify-content: space-between;
+  height: 20px;
+  line-height: 20px;
+  align-items: center;
+}
+.popup .box .box-content {
+  padding: 20px 14px;
+}
+.popup .box .box-content .list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.popup .box .box-content .list .item {
+  width: 50%;
+  height: 20px;
+  line-height: 20px;
+  display: flex;
+  margin-bottom: 16px;
+}
+.popup .box .box-content .list .item .label {
+  color: #6D6C6D;
+  margin-right: 24px;
+}
+.popup .box .box-content .list .item .value {
+  color: #000000;
+}
+.popup .box .box-content .input-box {
+  display: flex;
+  margin: 20px 0;
+}
+.popup .box .box-content .input-box .label {
+  margin-right: 30px;
+  line-height: 32px;
+}
+.popup .box .box-content .input-box .input {
+  border: 1px solid #D8D8D8;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 4px;
+}
+.popup .box .footer {
+  display: flex;
+  justify-content: center;
+}
+.popup .box .footer .van-button {
+  width: 88px;
+}
+.popup .box .footer .plain {
+  margin-right: 20px;
+}

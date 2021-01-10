@@ -1,0 +1,87 @@
+.claim-record {
+  min-height: 100vh;
+  background: #EFEFEF;
+  padding: 16px 0;
+}
+.claim-record .title {
+  margin-top: 10px;
+  height: 40px;
+  line-height: 40px;
+  color: #000000;
+  font-size: 16px;
+  padding: 0 16px;
+  font-weight: 600;
+}
+.claim-record .list .item {
+  margin-bottom: 16px;
+}
+.claim-record .list .item .time {
+  padding: 0 16px;
+  height: 50px;
+  line-height: 50px;
+  color: #999999;
+  font-size: 12px;
+  background: #FFFFFF;
+}
+.claim-record .list .item .content {
+  padding: 16px;
+  background: #FFFFFF;
+}
+.claim-record .list .item .content .content-item {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  line-height: 40px;
+}
+.claim-record .btn {
+  height: 50px;
+  line-height: 50px;
+  background: #EEFFF9;
+  border-radius: 2px;
+  border: 2px solid #259D8F;
+  color: #259D8F;
+  text-align: center;
+  margin: 0 16px;
+}
+.box {
+  border-radius: 6px;
+  background: #FFFFFF;
+  padding: 16px;
+}
+.box .header {
+  display: flex;
+  justify-content: space-between;
+  height: 20px;
+  line-height: 20px;
+  align-items: center;
+}
+.box .box-content {
+  padding: 20px 14px;
+}
+.box .box-content .list {
+  margin-bottom: 40px;
+}
+.box .box-content .input-box {
+  display: flex;
+  margin: 20px 0;
+}
+.box .box-content .input-box .label {
+  margin-right: 30px;
+  line-height: 32px;
+}
+.box .box-content .input-box .input {
+  border: 1px solid #D8D8D8;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 4px;
+}
+.box .footer {
+  display: flex;
+  justify-content: center;
+}
+.box .footer .van-button {
+  width: 88px;
+}
+.box .footer .plain {
+  margin-right: 20px;
+}

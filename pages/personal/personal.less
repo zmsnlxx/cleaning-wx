@@ -3,7 +3,8 @@
   min-height: calc(100vh - 80px);
 
   .change {
-    position: relative;
+    position: absolute;
+    bottom: 144px;
     width: 100%;
     height: 130px;
     margin-top: 42px;
@@ -28,6 +29,20 @@
         width: 24px;
         height: 24px;
       }
+    }
+  }
+
+  .box {
+    margin-top: 60px;
+    padding: 0 24px;
+
+    .item {
+      background: #FFFFFF;
+      height: 50px;
+      padding: 0 24px;
+      line-height: 50px;
+      display: flex;
+      justify-content: space-between;
     }
   }
 
@@ -82,43 +97,6 @@
         width: 60px;
         height: 60px;
         margin-top: 35px;
-      }
-    }
-  }
-
-  .content {
-    padding: 40px 24px 140px 24px;
-    box-sizing: border-box;
-    position: relative;
-
-    .card-item {
-      width: 100%;
-      height: 80px;
-      background: #FFFFFF;
-      border-radius: 2px;
-      padding: 16px;
-      box-sizing: border-box;
-      margin-top: 8px;
-      line-height: 20px;
-      font-size: 14px;
-
-      .label {
-        color: #6D6C6D;
-        display: inline-block;
-        margin-right: 16px;
-      }
-
-      .value {
-        color: #000000;
-      }
-
-      .bottom {
-        display: flex;
-        margin-top: 8px;
-
-        .left {
-          width: 50%;
-        }
       }
     }
   }

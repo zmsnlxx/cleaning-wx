@@ -1,0 +1,39 @@
+<wxs module="filter" src="../../utils/util.wxs" />
+
+<view class="claim-record">
+  <view class="btn" bindtap="showPopup">我要申领</view>
+  <view class="title">已申领</view>
+  <view class="list">
+    <view wx:for="{{ list }}" wx:key="index" class="item">
+      <view class="time van-hairline--bottom">{{ filter.formatTime(item.createTime * 1000, '-', false) }}</view>
+      <view class="content">
+        <view wx:for="{{ item.applys }}" class="content-item" wx:for-item="i" wx:key="idx">
+          <view class="label">{{ i.name }}</view>
+          <view class="value">{{ i.num }}{{ i.unit }}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<van-toast id="van-toast" />
+<van-popup show="{{ show }}" bind:close="onClose" custom-style="width: 85%" custom-class="popup" class="popup">
+  <view class="box">
+    <view class="header">
+      <text>选择楼层</text>
+      <van-icon bindtap="onClose" name="cross" size="20" />
+    </view>
+    <view class="box-content">
+      <view class="list">*请先选择您需要申领用品的楼层</view>
+      <view class="input-box">
+        <view class="label">楼层</view>
+        <input value="{{ floor }}" class="input" type="number" bindinput="input" placeholder="请输入"  />
+      </view>
+    </view>
+    <view class="footer">
+      <van-button plain class="plain" bindtap="onClose">取消</van-button>
+      <van-button color="#259D8F" bindtap="jump">确定</van-button>
+    </view>
+  </view>
+</van-popup>
+
+

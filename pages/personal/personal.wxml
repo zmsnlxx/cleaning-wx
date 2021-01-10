@@ -11,14 +11,19 @@
       </view>
     </view>
   </view>
-<!--  <view class="change" bindtap="login">-->
-<!--    <image class="change-btn" src="../../public/img/btn.png" />-->
-<!--    <view class="text">-->
-<!--      <view>点击切换为管理员</view>-->
-<!--      <image src="../../public/img/change.png" />-->
-<!--    </view>-->
-<!--  </view>-->
-  <van-button wx:if="{{ user.position === '3' }}" class="btn report" block bindtap="goReport">我的报表</van-button>
+  <view class="box">
+    <view class="item van-hairline--bottom" wx:for="{{ labels }}" wx:key="index" bindtap="jump" data-path="{{ item.path }}">
+      <view>{{ item.label }}</view>
+      <van-icon color="#259D8F" name="play" />
+    </view>
+  </view>
+  <view class="change" bindtap="login">
+    <image class="change-btn" src="../../public/img/btn.png" />
+    <view class="text">
+      <view>点击切换为管理员</view>
+      <image src="../../public/img/change.png" />
+    </view>
+  </view>
   <van-button class="btn" block bindtap="logout">退出登录</van-button>
   <view class="margin" />
 </view>
