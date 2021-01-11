@@ -17,13 +17,7 @@
       <van-icon color="#259D8F" name="play" />
     </view>
   </view>
-  <view class="change" bindtap="login">
-    <image class="change-btn" src="../../public/img/btn.png" />
-    <view class="text">
-      <view>点击切换为管理员</view>
-      <image src="../../public/img/change.png" />
-    </view>
-  </view>
+  <view bindtap="login" class="change">点击切换为管理员</view>
   <van-button class="btn" block bindtap="logout">退出登录</van-button>
   <view class="margin" />
 </view>

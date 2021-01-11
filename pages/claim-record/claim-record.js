@@ -7,9 +7,8 @@ Page({
     show: false,
     floor: '',
   },
-  onLoad() {
+  onShow() {
     ajax('/index/apply/list').then(res => {
-      console.log(res.list)
       this.setData({ list: res.list })
     })
   },
@@ -18,7 +17,7 @@ Page({
   },
   jump() {
     if (!this.data.floor) return Toast({ type: 'fail', message: '请输入楼层' })
-    wx.navigateTo({ url: `/pages/warehouse/warehouse?floor=${this.data.floor}` })
+    wx.navigateTo({ url: `/pages/warehouse/warehouse?type=2&&floor=${this.data.floor}` })
     this.setData({ show: false, floor: '' })
   },
   onClose() {

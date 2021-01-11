@@ -8,8 +8,8 @@ Page({
     const user = wx.getStorageSync('user');
     const labels = [
       { label: '周报月报', path: '/pages/my-report/my-report', show: user.position === '3' },
-      { label: '仓库管理', path: '/pages/warehouse/warehouse', show: user.position === '3' },
-      { label: '申领用品', path: '/pages/claim-record/claim-record', show: user.position !== '3' },
+      { label: '仓库管理', path: '/pages/warehouse/warehouse?type=1', show: user.position === '3' },
+      { label: '申领用品', path: '/pages/claim-record/claim-record', show: true },
     ].filter(item => item.show)
     this.setData({ user, labels })
   },

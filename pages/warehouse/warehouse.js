@@ -24,23 +24,26 @@ Page({
       floor: '',
       applys: []
     },
-    orderId: ''
+    orderId: '',
+    type: ''
   },
   onLoad(option) {
     const user = wx.getStorageSync('user');
-    this.setData({ user, 'params.floor': option && option.floor || '' })
+    this.setData({ user, 'params.floor': option && option.floor || '', type: option && option.type || '' })
     wx.setNavigationBarTitle({
-      title: user.position === '3' ? '仓库管理' : '用品申领'
+      title: option && option.type === '1' ? '仓库管理' : '用品申领'
     })
     this.getList()
   },
   getList() {
-    ajax('/index/warehouse/list').then(res => {
-      this.setData({ list: res })
+    ajax('/index/warehouse/list', { name: this.data.value }).then(res => {
+      const activeName = res.map(item => item.type)
+      this.setData({ list: res, activeName })
     })
   },
   search(e) {
     this.setData({ value: e.detail })
+    this.getList()
   },
   onChange(e) {
     this.setData({ activeName: e.detail });
@@ -59,7 +62,7 @@ Page({
     this.setData({ show: false, num: '' })
   },
   submit() {
-    if (this.data.user.position === '3') {
+    if (this.data.type === '1') {
       const params = { warehouseId: this.data.row.warehouseId, stock: this.data.num }
       ajax('/index/warehouse/update', params, 'post').then(res => {
         Toast({ type: 'success', context: this, message: '调整成功！' })
@@ -93,14 +96,13 @@ Page({
     applys.forEach(item => {
       total += Number(item.num)
     })
-    console.log(total)
     Dialog.confirm({
       title: '确认申领',
       message: `*您共选择了${applys.length}种物品，共${total}件，请确认完毕后点击确认进行申领`,
     }).then(() => {
       ajax('/index/apply/add', this.data.params, 'post').then(() => {
         Toast({ type: 'success', context: this, message: '申领成功！' })
-        wx.navigateTo({ url: '/pages/claim-record/claim-record' })
+        wx.navigateBack({ delta: 1 })
       })
     })
   }

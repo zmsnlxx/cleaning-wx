@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/claim-record/claim-record",
     "pages/personal/personal",
+    "pages/index/index",
     "pages/warehouse/warehouse",
+    "pages/claim-record/claim-record",
     "pages/clean-detail/clean-detail",
     "pages/clean-report/clean-report",
     "pages/inspection-report/inspection-report",
