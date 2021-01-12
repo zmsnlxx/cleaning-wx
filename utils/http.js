@@ -1,6 +1,6 @@
-function ajax(url, data, method) {
+function ajax(url, data, method, otherToken) {
   const params = method === 'post' ? filterParams(data, true) : filterParams(data)
-  const token = wx.getStorageSync('token')
+  const token = otherToken || wx.getStorageSync('token')
   const header = { token }
   return new Promise((resolve, reject) => {
     wx.request({

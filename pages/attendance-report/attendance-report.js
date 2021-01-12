@@ -1,15 +1,16 @@
-import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
+import { ajax } from '../../utils/http'
 
 Page({
   data: {
-    list: [
-      {}
-    ],
+    list: [],
     form: {
-      day: new Date().getTime()
+      startTime: new Date().getTime(),
+      orgid: '',
     },
+    token: '',
+    org: [],
     maxDate: new Date().getTime(),
-    show: { day: false },
+    show: false,
     formatter(type, value) {
       if (type === 'year') {
         return `${value}年`
@@ -19,23 +20,35 @@ Page({
       return value
     },
   },
+  change(e) {
+    this.setData({ 'form.orgid': e.detail })
+    this.getList()
+  },
   onLoad() {
-
+    const token = wx.getStorageSync('other-token');
+    const org = wx.getStorageSync('org');
+    this.setData({ token, org: org.map(item => ({ text: item.orgname, value: item.orgid })), 'form.orgid': org[0].orgid })
+    this.getList()
   },
-  showClick(e) {
-    const model = e.currentTarget.dataset.name
-    this.setData({ [`show.${model}`]: true })
+  onUnload() {
+    wx.removeStorageSync('other-token')
+    wx.removeStorageSync('org')
   },
-  onCancel(e) {
-    const model = e.currentTarget.dataset.name
-    this.setData({ [`show.${model}`]: false })
+  getList() {
+    const params = Object.assign({}, this.data.form, { startTime: parseInt(this.data.form.startTime / 1000) })
+    ajax('/index/admin/signReport', params, 'get', this.data.token).then(res => {
+      this.setData({ list: res })
+    })
+  },
+  showClick() {
+    this.setData({ show: true })
+  },
+  onCancel() {
+    this.setData({ show: false })
   },
   onDateConfirm(e) {
-    const model = e.currentTarget.dataset.name
-    this.setData({ [`form.${model}`]: e.detail, [`show.${model}`]: false })
-    if (model === 'day') {
-      this.getDayData({ day: parseInt(this.data.form.day / 1000) })
-    }
+    this.setData({ 'form.startTime': e.detail, show: false })
+    this.getList()
   },
   preventTouchMove() {},
 })

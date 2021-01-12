@@ -4,6 +4,9 @@
   padding-bottom: 20px;
   box-sizing: border-box;
 }
+.attendance-report .van-dropdown-menu {
+  background: #259D8F;
+}
 .attendance-report .time-pick {
   height: 54px;
   line-height: 54px;
@@ -26,36 +29,7 @@
 .attendance-report .time-pick .pick .van-icon {
   margin-right: 3px;
 }
-.attendance-report .day-content {
+.attendance-report .content {
   padding: 0 16px;
   box-sizing: border-box;
-}
-.attendance-report .day-content .card {
-  width: 100%;
-  height: 80px;
-  background: #FFFFFF;
-  border-radius: 4px;
-  padding: 16px;
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 8px;
-}
-.attendance-report .day-content .card .item {
-  width: 50%;
-  text-align: center;
-  font-size: 14px;
-  line-height: 24px;
-  display: flex;
-}
-.attendance-report .day-content .card .item .label {
-  color: #BEBEBE;
-  margin-right: 16px;
-  min-width: 70px;
-}
-.attendance-report .day-content .card .item .value {
-  color: #000000;
-}
-.attendance-report .day-content .card .item .wanring {
-  color: #F4BD3A;
 }

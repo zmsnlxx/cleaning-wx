@@ -8,7 +8,7 @@
       <van-field value="{{ params.phone }}" bind:change="onChange" data-name="phone" center type="text" clearable placeholder="请输入账号">
         <van-icon slot="left-icon" size="24" color="#259D8F" name="graphic" />
       </van-field>
-      <van-field value="{{ params.password }}" bind:change="onChange" data-name="password" center type="password" clearable placeholder="请输入密码">
+      <van-field value="{{ params.pwd }}" bind:change="onChange" data-name="pwd" center type="password" clearable placeholder="请输入密码">
         <van-icon slot="left-icon" size="24" color="#259D8F" name="lock" />
       </van-field>
     </view>
