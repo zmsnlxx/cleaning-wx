@@ -1,25 +1,35 @@
 <view class="add-report">
-  <van-cell-group>
-    <van-field
-      value="{{ form.title }}"
-      placeholder="请输入标题"
-      label="标题"
-      data-name="title"
-      bind:change="onChange"
-    />
-    <van-field
-      value="{{ form.content }}"
-      label="内容"
-      type="textarea"
-      placeholder="请输入内容"
-      autosize
-      bind:change="onChange"
-      data-name="content"
-    />
-    <van-cell title="类型" data-name="type" value="{{ type }}" bind:click="onClick" is-link />
-  </van-cell-group>
-  <van-button class="btn" block bindtap="submit">提交报表</van-button>
-
+  <van-cell wx:if="{{ isDetail }}" title="类型" center border="{{ false }}" value="{{ type }}" />
+  <van-cell wx:else title="类型" data-name="type" center border="{{ false }}" value="{{ type }}" bind:click="onClick" is-link />
+  <view class="content">
+    <view class="item" wx:for="{{ params }}" wx:key="index" wx:for-index="index">
+      <view class="title">
+        <view>{{ item.label }}</view>
+        <view wx:if="{{ !isDetail }}" class="add" bindtap="add" data-index="{{ index }}">添加</view>
+      </view>
+      <view class="list" wx:for="{{ item.list }}" wx:key="index" wx:for-item="i" wx:for-index="id">
+        <view class="list-item van-hairline--bottom">
+          <view class="list-title flex">
+            <view>{{ index === 0 ? '关键工作任务' : '工作计划' }}</view>
+            <van-icon wx:if="{{ id !== 0 && !isDetail }}" color="#259D8F" size="16" name="clear" bindtap="clear" data-index="{{ index }}" data-id="{{ id }}" />
+          </view>
+          <textarea value="{{ i.title }}" maxlength="-1" placeholder-style="color: #C5C5C5;font-size: 14px" disabled="{{ isDetail }}" placeholder="请输入" bindinput="change" auto-height data-index="{{ index }}" data-id="{{ id }}" data-name="title" />
+        </view>
+        <view class="list-item">
+          <view class="list-title">{{ index === 0 ? '工作完成情况' : '工作安排计划' }}</view>
+          <textarea value="{{ i.content }}" maxlength="-1" placeholder-style="color: #C5C5C5;font-size: 14px" disabled="{{ isDetail }}" placeholder="请输入" bindinput="change" auto-height data-index="{{ index }}" data-id="{{ id }}" data-name="content" />
+        </view>
+      </view>
+      <view class="list">
+        <view class="list-title">{{ index === 0 ? '工作总结' : '需协调工作' }}</view>
+        <textarea value="{{ item.summary }}" maxlength="-1" placeholder-style="color: #C5C5C5;font-size: 14px" bindinput="changeSummary" auto-height disabled="{{ isDetail }}" data-index="{{ index }}" placeholder="请输入" />
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{ !isDetail }}" class="footer">
+    <van-button block plain class="plain" color="#259D8F" bindtap="cancel">取消</van-button>
+    <van-button block class="btn" color="#259D8F" bindtap="submit">确认</van-button>
+  </view>
   <van-popup show="{{ show }}" catchtouchmove="preventTouchMove" position="bottom" custom-style="height: 50%;" bind:close="onCancel">
     <van-picker title="请选择报表类型" show-toolbar bind:cancel="onCancel" bind:confirm="onConfirm" columns="{{ types }}" />
   </van-popup>

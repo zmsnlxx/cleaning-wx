@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/personal/personal",
     "pages/index/index",
+    "pages/my-report/my-report",
+    "pages/personal/personal",
+    "pages/add-report/add-report",
     "pages/warehouse/warehouse",
     "pages/claim-record/claim-record",
     "pages/clean-detail/clean-detail",
@@ -21,9 +23,7 @@
     "pages/inspection/inspection",
     "pages/login/login",
     "pages/attendance-report/attendance-report",
-    "pages/report-detail/report-detail",
-    "pages/add-report/add-report",
-    "pages/my-report/my-report"
+    "pages/report-detail/report-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -15,6 +15,46 @@
 .my-report .header .van-sticky .van-tabs__nav .van-tab {
   color: #FFFFFF;
 }
+.my-report .time-pick {
+  height: 54px;
+  line-height: 54px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+.my-report .time-pick .time-box {
+  width: calc(50% - 10px);
+  display: flex;
+  justify-content: center;
+}
+.my-report .time-pick .time-box .time {
+  margin-right: 10px;
+}
+.my-report .time-pick .line {
+  width: 20px;
+  color: #259D8F;
+}
+.my-report .content {
+  padding: 0 16px;
+}
+.my-report .content .item {
+  height: 52px;
+  line-height: 52px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  background: #FFFFFF;
+  font-size: 14px;
+  padding: 0 16px;
+}
+.my-report .content .item .title {
+  color: #000000;
+}
+.my-report .content .item .value {
+  color: #BEBEBE;
+}
 .my-report .add-report {
   position: fixed;
   bottom: 50px;

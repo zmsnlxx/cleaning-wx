@@ -7,8 +7,31 @@
       <van-tab title="月报" />
     </van-tabs>
   </view>
+  <view class="time-pick">
+    <view class="left time-box" data-name="startTime" bindtap="showClick">
+      <view class="time">{{ filter.formatTime(form.startTime, '-') }}</view>
+      <van-icon name="notes-o" color="#259D8F" size="18" />
+    </view>
+    <view class="line">-</view>
+    <view class="right time-box" data-name="endTime" bindtap="showClick">
+      <view class="time">{{ filter.formatTime(form.endTime, '-') }}</view>
+      <van-icon name="notes-o" color="#259D8F" size="18" />
+    </view>
+  </view>
   <view class="content">
-    <van-cell wx:for="{{ list }}" wx:key="index" bind:click="goDetail" data-index="{{ index }}" title="{{ item.title }}" value="{{ filter.formatTime(item.createTime * 1000, '-') }}" is-link />
+    <view wx:for="{{ list }}" wx:key="index" bindtap="goDetail" data-index="{{ index }}" class="item">
+      <view class="title">{{ item.pername }}</view>
+      <view class="value">{{ filter.formatTime(item.createTime * 1000, '-', false) }}</view>
+    </view>
+<!--    <van-cell wx:for="{{ list }}" wx:key="index" center bind:click="goDetail" data-index="{{ index }}" title="{{ item.pername }}" value="{{ filter.formatTime(item.createTime * 1000, '-', false) }}" />-->
   </view>
   <view class="add-report" bindtap="addReport">填报</view>
 </view>
+
+<van-popup show="{{ show.startTime }}" catchtouchmove="preventTouchMove" position="bottom" data-name="startTime" custom-style="height: 50%;" bind:close="onCancel">
+  <van-datetime-picker title="请选择日期" max-date="{{ maxDate }}" show-toolbar data-name="startTime" type="date" value="{{ form.startTime }}" bind:cancel="onCancel" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
+</van-popup>
+
+<van-popup show="{{ show.endTime }}" catchtouchmove="preventTouchMove" position="bottom" data-name="endTime" custom-style="height: 50%;" bind:close="onCancel">
+  <van-datetime-picker title="请选择日期" max-date="{{ maxDate }}" show-toolbar data-name="endTime" type="date" value="{{ form.endTime }}" bind:cancel="onCancel" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
+</van-popup>
