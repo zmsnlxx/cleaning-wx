@@ -9,10 +9,14 @@ Page({
     params: [],
     paramsType: '',
     isDetail: false,
-    detail: {}
+    detail: {},
+    dialog: false,
+    user: {},
   },
   onLoad(option) {
     const { type } = option
+    const user = wx.getStorageSync('user')
+    this.setData({ user })
     wx.setNavigationBarTitle({
       title: type === '1' ? '新增报表' : '报表详情'
     })
@@ -80,12 +84,33 @@ Page({
   },
   submit() {
     const [one, two] = this.data.params
+    const { weekReport, monthReport } = this.data.user
     if (!one.list[0].title || !one.list[0].content) return Toast.fail(`请至少填写一条${one.label}内容`)
     if (!two.list[0].title || !two.list[0].content) return Toast.fail(`请至少填写一条${two.label}内容`)
     if (!one.summary) return Toast.fail(`请填写${one.label}工作总结`)
     if (!two.summary) return Toast.fail(`请填写${two.label.slice(0,2)}需协调工作`)
     if (!this.data.paramsType) return Toast.fail('请选择类型！')
-
+    if (this.data.paramsType === 1) {
+      if (weekReport) {
+        this.setData({ dialog: true })
+      } else {
+        this.publish()
+      }
+    } else {
+      if (monthReport) {
+        this.setData({ dialog: true })
+      } else {
+        this.publish()
+      }
+    }
+  },
+  cancel() {
+    wx.navigateBack({ delta: 1 })
+  },
+  onClose() {
+    this.setData({ dialog: false })
+  },
+  publish() {
     ajax('/index/userReport/report', { type: this.data.paramsType, content: this.data.params }, 'post').then(() => {
       Toast({
         type: 'success',
@@ -95,8 +120,5 @@ Page({
         },
       });
     })
-  },
-  cancel() {
-    wx.navigateBack({ delta: 1 })
   }
 })

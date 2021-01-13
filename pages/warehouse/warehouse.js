@@ -69,6 +69,7 @@ Page({
         this.getList()
       })
     } else {
+      if (Number(this.data.num) > this.data.row.stock) return Toast.fail('库存不足，请重新输入')
       const arr = this.data.params.applys
       const list = this.data.list
       list.forEach(item => {

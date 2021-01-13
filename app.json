@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/personal/personal",
+    "pages/my-report/my-report",
+    "pages/add-report/add-report",
     "pages/attendance-report/attendance-report",
     "pages/login/login",
-    "pages/my-report/my-report",
-    "pages/personal/personal",
-    "pages/add-report/add-report",
     "pages/warehouse/warehouse",
     "pages/claim-record/claim-record",
     "pages/clean-detail/clean-detail",

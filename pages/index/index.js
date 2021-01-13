@@ -10,6 +10,16 @@ Page({
       { url: 'http://cdn.fledchina.com/16043788312227162' },
     ],
     videos: [],
+    position: null,
+    user: {}
+  },
+  onLoad() {
+    const user = wx.getStorageSync('user');
+    let total = 0
+    user.position.split(',').forEach(item => {
+      total += Number(item)
+    })
+    this.setData({ position: total, user })
   },
   onShow() {
     const token = wx.getStorageSync('token')
@@ -31,18 +41,19 @@ Page({
   },
   scanCode(e) {
     const type = e.currentTarget.dataset.type
-    const user = wx.getStorageSync('user');
-    const position = user.position.split(',')
-    if (!position.includes(type)) {
-      return Toast({ type: 'fail', context: this, message: '暂无权限，请联系管理员！' })
+    const { position } = this.data.user
+    if (type === 'inspection') {
+      if (this.data.position <= 1) return Toast.fail('暂无权限，请联系管理员！')
+    } else {
+      if (!position.split(',').includes('1')) return Toast.fail('暂无权限，请联系管理员！')
     }
     wx.scanCode({
       onlyFromCamera: true,
       success(res) {
-        if (!position.includes('2') && res.path.indexOf('inspection') !== -1) {
+        if (this.data.position <= 1 && res.path.indexOf('inspection') !== -1) {
           return Toast({ type: 'fail', context: this, message: '暂无权限，请联系管理员！' })
         }
-        if (!position.includes('1') && res.path.indexOf('clean') !== -1) {
+        if (!position.split(',').includes('1') && res.path.indexOf('clean') !== -1) {
           return Toast({ type: 'fail', context: this, message: '暂无权限，请联系管理员！' })
         }
         wx.navigateTo({ url: `/${res.path}` })
@@ -53,9 +64,7 @@ Page({
     })
   },
   goReport() {
-    const user = wx.getStorageSync('user');
-    const position = user.position.split(',')
-    if (!position.includes('2')) return Toast({ type: 'fail', context: this, message: '暂无权限，请联系管理员！' })
+    if (this.data.position <= 1) return Toast({ type: 'fail', context: this, message: '暂无权限，请联系管理员！' })
     wx.navigateTo({ url: '/pages/report/report' })
   }
 })

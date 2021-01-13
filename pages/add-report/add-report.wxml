@@ -33,6 +33,9 @@
   <van-popup show="{{ show }}" catchtouchmove="preventTouchMove" position="bottom" custom-style="height: 50%;" bind:close="onCancel">
     <van-picker title="请选择报表类型" show-toolbar bind:cancel="onCancel" bind:confirm="onConfirm" columns="{{ types }}" />
   </van-popup>
+  <van-dialog use-slot show="{{ dialog }}" confirm-button-color="#259D8F" title="" show-cancel-button bind:close="onClose" bind:confirm="publish">
+    <view class="dialog">本{{ paramsType === 1 ? '周' : '月' }}报表已提交，是否继续提交？</view>
+  </van-dialog>
 </view>
 <van-toast id="van-toast" />
 
