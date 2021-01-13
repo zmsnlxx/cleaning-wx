@@ -1,7 +1,7 @@
 <wxs module="filter" src="../../utils/util.wxs" />
 
 <view class="claim-record">
-  <view class="btn" bindtap="jump">我要申领</view>
+  <view class="btn" bindtap="showPopup">我要申领</view>
   <view class="title">已申领</view>
   <view class="list">
     <view wx:for="{{ list }}" wx:key="index" class="item">
@@ -16,5 +16,8 @@
   </view>
 </view>
 <van-toast id="van-toast" />
+<van-popup show="{{ show }}" catchtouchmove="preventTouchMove" bind:close="onCancel" position="bottom" custom-class="popup" class="popup">
+  <van-picker show-toolbar title="请选择楼层" bind:cancel="onCancel" columns="{{ floors }}" bind:confirm="onConfirm" />
+</van-popup>
 
 
