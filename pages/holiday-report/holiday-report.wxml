@@ -15,9 +15,16 @@
       <view class="num">{{ count }}</view>
     </view>
     <view wx:if="{{ signList.length }}" class="sign-box">
-      <view wx:for="{{ signList }}" wx:key="index" class="item">
-        <view class="name">{{ item.pername }}</view>
-        <view class="time">{{ filter.formatHourTime(item.signTime * 1000) }}</view>
+      <view wx:for="{{ signList }}" wx:key="index" class="item van-hairline--bottom">
+        <view class="name list">{{ item.pername }}</view>
+        <view class="time list">
+          <view class="title">第一次签到</view>
+          <view class="value">{{ filter.formatHourTime(item.signStartTime * 1000) }}</view>
+        </view>
+        <view class="time list">
+          <view class="title">第二次签到</view>
+          <view class="value">{{ filter.formatHourTime(item.signEndTime * 1000) }}</view>
+        </view>
       </view>
     </view>
     <van-empty wx:else image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="暂无数据" />

@@ -33,7 +33,7 @@ Page({
   preventTouchMove() {},
   fetchData() {
     const params = Object.assign({}, this.data.form, { day: parseInt(this.data.form.day / 1000) })
-    ajax('/index/report/signDaily', params).then(res => {
+    ajax('/index/report/v2/signDaily', params).then(res => {
       const { signList, pic, count } = res
       this.setData({ signList, pic, count })
     })
