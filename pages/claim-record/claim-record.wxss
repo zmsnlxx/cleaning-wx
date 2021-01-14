@@ -20,6 +20,8 @@
   height: 50px;
   line-height: 50px;
   color: #999999;
+  display: flex;
+  justify-content: space-between;
   font-size: 12px;
   background: #FFFFFF;
 }

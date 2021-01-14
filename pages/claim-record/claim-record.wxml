@@ -5,7 +5,10 @@
   <view class="title">已申领</view>
   <view class="list">
     <view wx:for="{{ list }}" wx:key="index" class="item">
-      <view class="time van-hairline--bottom">{{ filter.formatTime(item.createTime * 1000, '-', false) }}</view>
+      <view class="time van-hairline--bottom">
+        <view>{{ filter.formatTime(item.createTime * 1000, '-', false) }}</view>
+        <view>{{ item.floor || '三楼' }}</view>
+      </view>
       <view class="content">
         <view wx:for="{{ item.applys }}" class="content-item" wx:for-item="i" wx:key="idx">
           <view class="label">{{ i.name }}</view>
