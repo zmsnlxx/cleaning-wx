@@ -37,7 +37,7 @@ Page({
         title: ['仓库管理', '用品申领', '消耗报备'][+option.type]
       })
       if (option.type !== '0') {
-        this.setData({ text: option.type === '1' ? '库存' : '消耗' })
+        this.setData({ text: option.type === '1' ? '申领' : '消耗' })
       }
     }
     this.getList()

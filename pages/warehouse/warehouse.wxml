@@ -7,12 +7,12 @@
           <view class="label">
             <van-image src="{{ i.pic }}" />
             <view class="name">{{ i.name }}</view>
-            <view wx:if="{{ type === '1' }}" class="stock">| {{ i.stock }}{{ i.unit }}</view>
+            <view wx:if="{{ type === '0' }}" class="stock">| {{ i.stock }}{{ i.unit }}</view>
             <view wx:else class="stock">
               <view wx:if="{{ i.order }}" class="stock">已选{{ i.order }}{{ i.unit }}</view>
             </view>
           </view>
-          <view class="value" bindtap="open" data-order="{{ i.order ? i.warehouseId : '' }}" data-classIndex="{{ index }}" data-index="{{ id }}">{{ type === '0' ? '调整库存' : i.order ? '更改数量' : type === '1' ? '申领' : '消耗' }}</view>
+          <view class="value" bindtap="open" data-order="{{ i.order ? i.warehouseId : '' }}" data-classIndex="{{ index }}" data-index="{{ id }}">{{ type === '0' ? '调整库存' : i.order ? '更改数量' : text }}</view>
         </view>
       </van-collapse-item>
     </van-collapse>
@@ -27,7 +27,7 @@
 </view>
 <van-toast id="van-toast" />
 <van-dialog id="van-dialog" />
-<van-popup show="{{ show }}" bind:close="onClose" custom-style="width: 85%" custom-class="popup" class="popup">
+<van-popup show="{{ show }}" bind:close="onClose" custom-style="width: 85%" custom-class="popup" close-on-click-overlay="{{ false }}" class="popup">
   <view class="box">
     <view class="header">
       <text>{{ type === '0' ? '调整库存' : text }}</text>
