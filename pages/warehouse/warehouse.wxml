@@ -5,13 +5,14 @@
       <van-collapse-item wx:for="{{ list }}" wx:key="index" title="{{ item.typeName }}" name="{{ item.type }}">
         <view class="item van-hairline--bottom" wx:for="{{ item.list }}" wx:for-item="i" wx:key="index" wx:for-index="id">
           <view class="label">
+            <van-image src="{{ i.pic }}" />
             <view class="name">{{ i.name }}</view>
             <view wx:if="{{ type === '1' }}" class="stock">| {{ i.stock }}{{ i.unit }}</view>
             <view wx:else class="stock">
               <view wx:if="{{ i.order }}" class="stock">已选{{ i.order }}{{ i.unit }}</view>
             </view>
           </view>
-          <view class="value" bindtap="open" data-order="{{ i.order ? i.warehouseId : '' }}" data-classIndex="{{ index }}" data-index="{{ id }}">{{ type === '1' ? '调整库存' : i.order ? '更改数量' : text }}</view>
+          <view class="value" bindtap="open" data-order="{{ i.order ? i.warehouseId : '' }}" data-classIndex="{{ index }}" data-index="{{ id }}">{{ type === '0' ? '调整库存' : i.order ? '更改数量' : type === '1' ? '申领' : '消耗' }}</view>
         </view>
       </van-collapse-item>
     </van-collapse>

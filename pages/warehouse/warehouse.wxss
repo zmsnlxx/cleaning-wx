@@ -14,16 +14,21 @@
   background: transparent;
 }
 .warehouse .van-collapse-item__content {
-  padding: 0 16px;
+  padding: 0 16px 0 0;
 }
 .warehouse .item {
-  height: 50px;
-  line-height: 50px;
+  height: 70px;
+  line-height: 70px;
   display: flex;
   justify-content: space-between;
 }
 .warehouse .item .label {
   display: flex;
+}
+.warehouse .item .label .van-image {
+  width: 120px;
+  height: 100%;
+  margin-right: 8px;
 }
 .warehouse .item .label .name {
   color: #000000;
