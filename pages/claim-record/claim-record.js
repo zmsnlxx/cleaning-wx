@@ -6,14 +6,18 @@ Page({
     list: [],
     show: false,
     floors: [],
-    floor: ''
+    floor: '',
+    type: '1'
   },
-  onLoad() {
+  onLoad({ type }) {
     const { floor } = wx.getStorageSync('user');
-    this.setData({ floors: floor.split(',') })
+    this.setData({ floors: floor.split(','), type })
+    wx.setNavigationBarTitle({
+      title: type === '1' ? '申领记录' : '消耗记录'
+    })
   },
   onShow() {
-    ajax('/index/apply/list').then(res => {
+    ajax('/index/apply/list', { type: this.data.type }).then(res => {
       this.setData({ list: res.list })
     })
   },
@@ -21,7 +25,7 @@ Page({
     this.setData({ floor: e.detail.value, show: false, })
     const floor = this.data.floor
     if (!floor) return Toast({ type: 'fail', message: '暂未设置楼层，请联系管理员' })
-    wx.navigateTo({ url: `/pages/warehouse/warehouse?type=2&&floor=${floor}` })
+    wx.navigateTo({ url: `/pages/warehouse/warehouse?type=${this.data.type}&&floor=${floor}` })
   },
   preventTouchMove() {},
   showPopup() {

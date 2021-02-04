@@ -25,6 +25,44 @@
     padding: 12px;
     box-sizing: border-box;
 
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+
+      .item {
+        width: calc(50% - 8px);
+        height: 54px;
+        border-radius: 6px;
+        padding: 16px 24px;
+        box-sizing: border-box;
+        color: #000000;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:first-child {
+          margin-right: 16px;
+        }
+
+        .icon {
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      .left {
+        border: 1px solid #F4BD3A;
+        background: #FFFAED;
+      }
+
+      .right {
+        border: 1px solid #259D8F;
+        background: #EEFFF9;
+      }
+    }
+
     .card {
       display: flex;
       box-sizing: border-box;

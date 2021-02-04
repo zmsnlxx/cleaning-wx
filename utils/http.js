@@ -1,10 +1,13 @@
+const base = 0
+
 function ajax(url, data, method, otherToken) {
   const params = method === 'post' ? filterParams(data, true) : filterParams(data)
   const token = otherToken || wx.getStorageSync('token')
   const header = { token }
+  const baseUrl = ['https://cleaning.newband.com', 'https://api-cleaning.allin-china.com'][base]
   return new Promise((resolve, reject) => {
     wx.request({
-      url: `https://api-cleaning.allin-china.com${url}`,
+      url: `${baseUrl}${url}`,
       data: params || {},
       header,
       method: method || 'get',

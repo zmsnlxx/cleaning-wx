@@ -66,5 +66,9 @@ Page({
   goReport() {
     if (this.data.position <= 1) return Toast({ type: 'fail', context: this, message: '暂无权限，请联系管理员！' })
     wx.navigateTo({ url: '/pages/report/report' })
+  },
+  jump(e) {
+    const type = e.currentTarget.dataset.type
+    wx.navigateTo({ url: `/pages/claim-record/claim-record?type=${type}` })
   }
 })

@@ -22,17 +22,24 @@ Page({
     num: '',
     params: {
       floor: '',
+      type: '1',
       applys: []
     },
     orderId: '',
-    type: ''
+    type: '',
+    text: '库存',
   },
   onLoad(option) {
     const user = wx.getStorageSync('user');
-    this.setData({ user, 'params.floor': option && option.floor || '', type: option && option.type || '' })
-    wx.setNavigationBarTitle({
-      title: option && option.type === '1' ? '仓库管理' : '用品申领'
-    })
+    if (option) {
+      this.setData({ user, 'params.floor': option.floor || '', type: option.type || '1', 'params.type': option.type || '1' })
+      wx.setNavigationBarTitle({
+        title: ['仓库管理', '用品申领', '消耗报备'][+option.type]
+      })
+      if (option.type !== '0') {
+        this.setData({ text: option.type === '1' ? '库存' : '消耗' })
+      }
+    }
     this.getList()
   },
   getList() {
@@ -62,7 +69,7 @@ Page({
     this.setData({ show: false, num: '' })
   },
   submit() {
-    if (this.data.type === '1') {
+    if (this.data.type === '0') {
       const params = { warehouseId: this.data.row.warehouseId, stock: this.data.num }
       ajax('/index/warehouse/update', params, 'post').then(res => {
         Toast({ type: 'success', context: this, message: '调整成功！' })
@@ -98,11 +105,11 @@ Page({
       total += Number(item.num)
     })
     Dialog.confirm({
-      title: '确认申领',
-      message: `*您共选择了${applys.length}种物品，共${total}件，请确认完毕后点击确认进行申领`,
+      title: `确认${this.data.type === '1' ? '申领'  : '消耗'}`,
+      message: `*您共选择了${applys.length}种物品，共${total}件，请确认完毕后点击确认进行${this.data.type === '1' ? '申领'  : '消耗'}`,
     }).then(() => {
       ajax('/index/apply/add', this.data.params, 'post').then(() => {
-        Toast({ type: 'success', context: this, message: '申领成功！' })
+        Toast({ type: 'success', context: this, message: `${this.data.type === '1' ? '申领'  : '消耗'}成功！` })
         wx.navigateBack({ delta: 1 })
       })
     })

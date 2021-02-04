@@ -11,17 +11,17 @@
               <view wx:if="{{ i.order }}" class="stock">已选{{ i.order }}{{ i.unit }}</view>
             </view>
           </view>
-          <view class="value" bindtap="open" data-order="{{ i.order ? i.warehouseId : '' }}" data-classIndex="{{ index }}" data-index="{{ id }}">{{ type === '1' ? '调整库存' : i.order ? '更改数量' : '申领' }}</view>
+          <view class="value" bindtap="open" data-order="{{ i.order ? i.warehouseId : '' }}" data-classIndex="{{ index }}" data-index="{{ id }}">{{ type === '1' ? '调整库存' : i.order ? '更改数量' : text }}</view>
         </view>
       </van-collapse-item>
     </van-collapse>
   </view>
-  <view class="footer" wx:if="{{ type === '2' }}">
+  <view class="footer" wx:if="{{ type !== '0' }}">
     <view class="left">
-      <text>已选申领物品</text>
+      <text>已选{{ text }}物品</text>
       <text class="value">{{ params.applys.length }}</text>
     </view>
-    <view class="right" bindtap="clickBtn">确认申领</view>
+    <view class="right" bindtap="clickBtn">确认{{ text }}</view>
   </view>
 </view>
 <van-toast id="van-toast" />
@@ -29,7 +29,7 @@
 <van-popup show="{{ show }}" bind:close="onClose" custom-style="width: 85%" custom-class="popup" class="popup">
   <view class="box">
     <view class="header">
-      <text>{{ type === '1' ? '调整库存' : '申领' }}</text>
+      <text>{{ type === '0' ? '调整库存' : text }}</text>
       <van-icon bindtap="onClose" name="cross" size="20" />
     </view>
     <view class="box-content">
@@ -44,7 +44,7 @@
         </view>
       </view>
       <view class="input-box">
-        <view class="label">{{ type === '1' ? '库存数量' : '申领数量' }}</view>
+        <view class="label">{{ type === '0' ? '库存' : text }}数量</view>
         <input value="{{ num }}" class="input" type="number" bindinput="input" placeholder="请输入"  />
       </view>
     </view>

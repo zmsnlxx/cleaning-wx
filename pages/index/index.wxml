@@ -9,6 +9,16 @@
     </swiper>
   </view>
   <view class="content">
+    <view class="tabs">
+      <view class="item left" bindtap="jump" data-type="1">
+        <view class="text">我要申领</view>
+        <image src="../../public/img/in.png" class="icon" />
+      </view>
+      <view class="item right" bindtap="jump" data-type="2">
+        <view class="text">每日消耗</view>
+        <image src="../../public/img/out.png" class="icon" />
+      </view>
+    </view>
     <view class="card">
       <view class="left item">
         <view class="high" bindtap="goSign">

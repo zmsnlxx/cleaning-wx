@@ -1,8 +1,8 @@
 <wxs module="filter" src="../../utils/util.wxs" />
 
 <view class="claim-record">
-  <view class="btn" bindtap="showPopup">我要申领</view>
-  <view class="title">已申领</view>
+  <view class="btn" bindtap="showPopup">{{ type === '1' ? '我要申领' : '消耗报备' }}</view>
+  <view class="title">{{ type === '1' ? '已申领' : '已消耗' }}</view>
   <view class="list">
     <view wx:for="{{ list }}" wx:key="index" class="item">
       <view class="time van-hairline--bottom">
