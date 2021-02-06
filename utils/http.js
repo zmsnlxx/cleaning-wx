@@ -1,4 +1,4 @@
-const base = 0
+const base = 1
 
 function ajax(url, data, method, otherToken) {
   const params = method === 'post' ? filterParams(data, true) : filterParams(data)
